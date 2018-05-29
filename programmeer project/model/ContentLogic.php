@@ -2,16 +2,23 @@
 
 class ContentLogic {
 
+    private $PhpUtilities;
     private $DataHandler;
-    private $HtmlElements;
     private $DataValidator;
 
-    public function __construct($dbName, $username, $pass, $serverAdress, $dbType) {
-        $this->DataHandler = new DataHandler($dbName, $username, $pass, $serverAdress, $dbType);
+    private $columnNames;
+    private $dataTypes;
+    private $dataNullArray;
 
-        $columnNames =   $this->DataHandler->GetColumnNames("content");
-        $dataTypes =     $this->DataHandler->GetTableTypes("content");
-        $dataNullArray = $this->DataHandler->GetTableNullValues("content");
+    public function __construct($dbName, $username, $pass, $serverAdress, $dbType) {
+        $this->PhpUtilities     = new PhpUtilities      ();
+        $this->DataHandler      = new DataHandler       ($dbName, $username, $pass, $serverAdress, $dbType);
+
+        $columnNames            =   $this->DataHandler->GetColumnNames("3dbril");
+        $dataTypes              =   $this->DataHandler->GetTableTypes("3dbril");
+        $dataNullArray          =   $this->DataHandler->GetTableNullValues("3dbril");
+
+        $this->DataValidator    = new DataValidator     ($columnNames, $dataTypes, $dataNullArray);
     }
 
     public function __destruct() {
