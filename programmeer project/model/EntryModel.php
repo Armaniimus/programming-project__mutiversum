@@ -1,11 +1,11 @@
 <?php
 require_once "ContentLogic.php";
 
-require_once "traits\DH_DV_MixedIN.php";
+require_once "traits\ValidatePHP_ID.php";
 require_once "PhpUtilities-v1.php";
 
-require_once "DataHandler-v2.php";
-require_once "DataValidator-v2.php";
+require_once "DataHandler-v3.php";
+require_once "DataValidator-v3.php";
 
 require_once "HtmlElements-v1.php";
 
