@@ -63,12 +63,29 @@
             }
         }
 
-        public function ReadData($readQuery) {
-            return $this->RunSqlQuery($readQuery, 1);
+        public function ReadData($readQuery, $nrParamArray = NULL) {
+
+            // If a prepared statement is needed because of evil user data
+            if ($nrParamArray !== NULL) {
+                $localConn = $this->HandlePreparedStatement($readQuery, $nrParamArray);
+                return $this->RunSqlQuery(NULL, 1, $localConn);
+
+            // Else just Run it
+            } else {
+                return $this->RunSqlQuery($readQuery, 1);
+            }
         }
 
-        public function ReadSingleData($readQuery) {
-            return $this->RunSqlQuery($readQuery, 2);
+        public function ReadSingleData($readQuery, $nrParamArray = NULL) {
+            // If a prepared statement is needed because of evil user data
+            if ($nrParamArray !== NULL) {
+                $localConn = $this->HandlePreparedStatement($readQuery, $nrParamArray);
+                return $this->RunSqlQuery(NULL, 2, $localConn);
+
+            // Else just Run it
+            } else {
+                return $this->RunSqlQuery($readQuery, 2);
+            }
         }
 
         public function SetUpdateQuery($tablename, $AssocArray, $idName = NULL, $idValue = NULL) {
@@ -158,6 +175,17 @@
         ##################
         # helper methods
         ##################
+        private function HandlePreparedStatement($readQuery, $nrParamArray) {
+            $localConn = $this->conn->prepare($readQuery);
+
+            for ($i=0; $i < count($nrParamArray); $i++) {
+                $localConn->bindParam($i+1, $nrParamArray[$i]);
+            }
+            $localConn->execute();
+
+            return $localConn;
+        }
+
         /****
         ** description -> Gets critical tabledata
         ** relies on methods -> RunSqlQuery()
@@ -186,23 +214,30 @@
         ** string variables -> $sqlQuery
         ** int variables -> $option
         ****/
-        private function RunSqlQuery($sqlQuery, $option = 0) {
+        private function RunSqlQuery($sqlQuery = NULL, $option = 0, $receivedLocalConn = NULL) {
 
             try {
-                $localConn = $this->conn->prepare($sqlQuery);
+                //SET local conn
+                if ($sqlQuery !== NULL) {
+                    $localConn = $this->conn->prepare($sqlQuery);
 
-                // run the query and return true or false for non read functions
+                } else {
+                    $localConn = $receivedLocalConn;
+                }
+
+                // RUN Query non read functions
+                // and return true or false for non read functions
                 if ($option == 0 || $option == "create" || $option == "update" || $option == "delete") {
                     if ( $localConn->execute() ) {
                         return TRUE;
                     };
 
-                // run the query
-                } else {
+                // RUN Query read functions
+                } else if ($sqlQuery !== NULL) {
                     $localConn->execute();
                 }
 
-                // Get an associative array for the readFunctions
+                // FETCH Assoc arrays
                 if ($option == 1 || $option == "readAll") {
                     $return = $localConn->fetchAll(PDO::FETCH_ASSOC);
 
@@ -215,7 +250,10 @@
             }
 
             catch(PDOException $e) {
-                throw new Exception("SQL: $sqlQuery ERROR: ". $e->getMessage() );
+                echo "<pre>";
+                echo "SQL: $sqlQuery";
+                    throw new Exception($e->getMessage());
+                echo "</pre>";
                 $return = false;
             }
 
