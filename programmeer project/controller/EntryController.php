@@ -23,20 +23,26 @@ class EntryController {
 
         switch ($view) {
             case '404':
-                $this->controller_404($view);
+                $this->controller_404();
                 break;
 
             case 'home':
-                $this->controller_home($view);
+                $this->controller_home();
                 break;
 
             case 'specific':
-                $this->controller_specific($view);
+                $this->controller_specific();
                 break;
 
             case 'overview':
-                $this->controller_overview($view);
+                $this->controller_overview();
                 break;
+
+            default:
+                $this->controller_specific();
+                //home $this->controller_home();
+                break;
+
         }
     }
 
@@ -49,11 +55,11 @@ class EntryController {
     }
 
     public function controller_specific() {
-
+        $this->EntryModel->GetContentSpecificData();
     }
 
     public function controller_overview() {
-
+        $this->EntryModel->GetContentOverViewData();
     }
 }
 
