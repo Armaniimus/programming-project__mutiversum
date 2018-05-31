@@ -6,9 +6,9 @@ class ContentLogic {
     private $DataHandler;
     private $DataValidator;
 
-    private $columnNames;
-    private $dataTypes;
-    private $dataNullArray;
+    public $columnNames;
+    public $dataTypes;
+    public $dataNullArray;
 
     public function __construct($dbName, $username, $pass, $serverAdress, $dbType) {
         $this->PhpUtilities     = new PhpUtilities      ();
