@@ -96,13 +96,13 @@
 
                 // set idName if not supplied
                 if ($idName == NULL) {
-                    echo "error1";
+                    throw new Exception("UpdateQuery: IdName not supplied", 1);
                     $idName = $columnNames[0];
                 }
 
                 // set idValue if not supplied
                 if ($idValue == NULL) {
-                    echo "error2";
+                    throw new Exception("UpdateQuery: IdValue not supplied", 1);
                     $idValue = $AssocArray[$idName];
                 }
 
