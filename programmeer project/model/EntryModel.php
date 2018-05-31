@@ -34,10 +34,10 @@ class EntryModel {
     }
 
     public function GetContentSpecificData($id) {
-        return $ContentLogic->GetSpecificData($id);
+        return $this->ContentLogic->GetSpecificData($id);
     }
 
     public function GetContentOverViewData() {
-        return $ContentLogic->GetOverViewData();
+        return $this->ContentLogic->GetOverViewData();
     }
 }
