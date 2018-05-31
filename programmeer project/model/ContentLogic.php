@@ -26,13 +26,18 @@ class ContentLogic {
     }
 
     public function GetSpecificData($id) {
-        $sql = "SELECT * FROM 3dbril WHERE id = ?";
-        $paramArray = [$id];
+        if ( $this->DataValidator->ValidatePHP_ID($id) ) {
+            $sql = "SELECT * FROM 3dbril WHERE id = ?";
+            $paramArray = [$id];
 
-        // $sql = "SELECT * FROM 3dbril WHERE id = $id";
+            // $sql = "SELECT * FROM 3dbril WHERE id = $id";
 
-        $returnArray = $this->DataHandler->ReadSingleData($sql, $paramArray);
-        return $returnArray;
+            $returnArray = $this->DataHandler->ReadSingleData($sql, $paramArray);
+            return $returnArray;
+
+        } else {
+            return [];
+        }
     }
 
     public function GetOverViewData() {
