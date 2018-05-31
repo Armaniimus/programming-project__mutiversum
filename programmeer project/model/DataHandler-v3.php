@@ -28,7 +28,8 @@
         #included trait
         use ValidatePHP_ID;
 
-        # primairy methods
+        ######################
+        # primary methods
         public function SetCreateQuery($tableName, $inputColumnNames, $inputAssocArray) {
 
             // generate comma Seperated ColumnNames
@@ -341,6 +342,7 @@
             return $columnNames;
         }
 
+        ########################
         # secondary methods
         public function CountDataResults($tablename, $where = "") {
             $SearchQuery = "SELECT " . "count" . "(*) FROM $tablename $where";
