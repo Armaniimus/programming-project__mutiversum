@@ -18,7 +18,7 @@ class EntryController {
         if (isset($_GET["view"])) {
             $view = $_GET["view"];
         } else {
-            $view = "home";
+            $view = "";
         }
 
         switch ($view) {
@@ -39,15 +39,15 @@ class EntryController {
                 break;
 
             default:
-                $this->controller_specific();
-                //home $this->controller_home();
+                $this->controller_overview();
+                // $this->controller_specific();
+                // $this->controller_home();
                 break;
-
         }
     }
 
     public function controller_404() {
-        include "view/default.php";
+        // include "view/default.php";
     }
 
     public function controller_home() {
@@ -55,11 +55,30 @@ class EntryController {
     }
 
     public function controller_specific() {
-        $this->EntryModel->GetContentSpecificData();
+
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+
+            $resultArray = $this->EntryModel->GetContentSpecificData($id);
+
+            echo "<pre>";
+            var_dump($resultArray);
+            echo "</pre>";
+
+        } else {
+            $this->controller_404();
+        }
+
+
+
     }
 
     public function controller_overview() {
-        $this->EntryModel->GetContentOverViewData();
+        $resultArray = $this->EntryModel->GetContentOverViewData();
+
+        echo "<pre>";
+        var_dump($resultArray);
+        echo "</pre>";
     }
 }
 
