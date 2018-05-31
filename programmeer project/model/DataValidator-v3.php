@@ -13,7 +13,7 @@
 
         ####################
         #included trait
-        use ValidatePHP_ID;;
+        use ValidatePHP_ID;
 
         ####################
         #front-end methods
