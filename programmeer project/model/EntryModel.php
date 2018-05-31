@@ -22,28 +22,22 @@ class EntryModel {
 
     public function __destruct() {
         $this->ContentLogic     = NULL;
-        $this->UsersLogic       = NULL;
-        $this->View_loginLogic  = NULL;
-
         $this->DataHandler      = NULL;
-        $this->DataValidator    = NULL;
     }
 
-    public function GetDefaultData($view) {
-        $returnArray = $this->ContentLogic->GetDefaultData($view);
-
-        return $returnArray;
+    public function Get404Data() {
+        return $this->ContentLogic->Get404Data();
     }
 
-    public function GetSpecificData($view) {
+    public function controller_home() {
 
-        $sql = "SELECT naam, merk, prijs, afbeelding FROM 3dbril";
-        $returnArray = $this->ContentLogic->GetDefaultData($view);
-
-        return $returnArray;
     }
 
-    public function Get404Data($view) {
-        return $this->ContentLogic->Get404Data($view);
+    public function GetContentSpecificData($id) {
+        return $ContentLogic->GetSpecificData($id);
+    }
+
+    public function GetContentOverViewData() {
+        return $ContentLogic->GetOverViewData();
     }
 }
