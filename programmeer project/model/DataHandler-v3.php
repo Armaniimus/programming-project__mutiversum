@@ -25,11 +25,13 @@
         }
 
         ####################
-        #included trait
+        # included trait
+        ####################
         use ValidatePHP_ID;
 
         ######################
         # primary methods
+        ######################
         public function SetCreateQuery($tableName, $inputColumnNames, $inputAssocArray) {
 
             // generate comma Seperated ColumnNames
@@ -153,7 +155,9 @@
             $this->RunSqlQuery($deleteQuery);
         }
 
+        ##################
         # helper methods
+        ##################
         /****
         ** description -> Gets critical tabledata
         ** relies on methods -> RunSqlQuery()
@@ -344,6 +348,7 @@
 
         ########################
         # secondary methods
+        ########################
         public function CountDataResults($tablename, $where = "") {
             $SearchQuery = "SELECT " . "count" . "(*) FROM $tablename $where";
             return $this->RunSqlQuery($SearchQuery, 3);
