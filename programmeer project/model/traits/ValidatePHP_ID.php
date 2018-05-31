@@ -36,7 +36,7 @@ trait ValidatePHP_ID {
         // Test if the result was succesfull
         if ($return == FALSE) {
             echo "<pre>";
-            throw new Exception("ERROR->[Invalid ID] MESSAGE->[$message] IDVALUE->[$idValue] METHOD->[$Method]");
+            throw new Exception("\nERROR->[Invalid ID] \nMESSAGE->[$message] \nIDVALUE->[$idValue] \nMETHOD->[$Method]\n\n");
             echo "</pre>";
             return FALSE;
 
