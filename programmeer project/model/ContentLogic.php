@@ -25,16 +25,19 @@ class ContentLogic {
         $this->DataHandler = NULL;
     }
 
-    public function GetSpecificData() {
-        $sql = "SELECT naam, merk, prijs, afbeelding FROM 3dbril";
-        $returnArray = $this->ContentLogic->GetDefaultData();
+    public function GetSpecificData($id) {
+        $sql = "SELECT * FROM 3dbril WHERE id = ?";
+        $paramArray = [$id];
 
+        // $sql = "SELECT * FROM 3dbril WHERE id = $id";
+
+        $returnArray = $this->DataHandler->ReadSingleData($sql, $paramArray);
         return $returnArray;
     }
 
     public function GetOverViewData() {
         $sql = "SELECT naam, merk, prijs, afbeelding FROM 3dbril";
-        $returnArray = $this->ContentLogic->GetDefaultData();
+        $returnArray = $this->DataHandler->ReadData($sql);
 
         return $returnArray;
     }
