@@ -10,7 +10,7 @@ trait ValidatePHP_ID {
     ** array variables -> $array
     ****/
 
-    private function ValidatePHP_ID($idValue, $Method = NULL) {
+    public function ValidatePHP_ID($idValue, $Method = NULL) {
 
         // run tests and set return message if needed
         if ($idValue == "" || $idValue == NULL) {
@@ -35,7 +35,9 @@ trait ValidatePHP_ID {
 
         // Test if the result was succesfull
         if ($return == FALSE) {
+            echo "<pre>";
             throw new Exception("ERROR->[Invalid ID] MESSAGE->[$message] IDVALUE->[$idValue] METHOD->[$Method]");
+            echo "</pre>";
             return FALSE;
 
         } else {
