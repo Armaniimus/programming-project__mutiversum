@@ -1,6 +1,5 @@
 <?php
-    require_once "traits/DH_DV_MixedIN.php";
-
+    require_once "traits\ValidatePHP_ID.php";
     class DataHandler {
         private $conn;
         public $error;
@@ -24,6 +23,10 @@
             $this->dbName = NULL;
             $this->tableData = NULL;
         }
+
+        ####################
+        #included trait
+        use ValidatePHP_ID;
 
         # primairy methods
         public function SetCreateQuery($tableName, $inputColumnNames, $inputAssocArray) {
@@ -452,7 +455,5 @@
 
             return $pageTable;
         }
-
-        use DH_DV_MixedIn;
     }
  ?>

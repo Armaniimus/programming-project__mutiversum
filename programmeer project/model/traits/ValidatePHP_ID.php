@@ -1,5 +1,5 @@
 <?php
-trait DH_DV_MixedIn {
+trait ValidatePHP_ID {
 
     /****
     ** description -> Selects specified data from an array
@@ -9,35 +9,6 @@ trait DH_DV_MixedIn {
     ** string variables -> $code
     ** array variables -> $array
     ****/
-    public function SelectWithCodeFromArray($array, $code) {
-        $splittedCode = str_split($code);
-        $return = []; // <--- is used to store the output data
-        $y=0; // <--- is used to count in which position the next datapiece needs to go
-
-        for ($i=0; $i<count($array); $i++) {
-            if ($splittedCode[$i] == 0) {
-
-            }
-            else if ($splittedCode[$i] == 1) {
-                $return[$y] = $array[$i];
-                $y++;
-            }
-            else if ($splittedCode[$i] == 2) {
-                //runs till the end of the array and writes everything inside the array
-                for ($i=$i; $i<count($array); $i++) {
-                    $return[$y] = $array[$i];
-                    $y++;
-                }
-            }
-            else if ($splittedCode[$i] == 3) {
-                //runs till the end of the array and writes nothings
-                for ($i=$i; $i<count($array); $i++) {
-
-                }
-            }
-        }
-        return $return;
-    }
 
     private function ValidatePHP_ID($idValue, $Method = NULL) {
 

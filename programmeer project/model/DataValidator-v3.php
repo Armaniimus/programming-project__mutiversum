@@ -1,5 +1,5 @@
 <?php
-
+    require_once "traits\ValidatePHP_ID.php";
     class DataValidator {
         private $dataTypesArray;
         private $nullDataArray;
@@ -10,6 +10,10 @@
             $this->nullDataArray = $nullDataArray;
             $this->columnNames = $columnNames;
         }
+
+        ####################
+        #included trait
+        use ValidatePHP_ID;;
 
         ####################
         #front-end methods
@@ -369,9 +373,5 @@
 
             return ['min' => $min,'max'=> $max];
         }
-
-        ####################
-        #included trait
-        use DH_DV_MixedIn; //uses the mixedin defined in -> "dataHandler/MixedIns/DH_DV_MixedIn";
 }
 ?>
