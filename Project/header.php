@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" > 
 
+    <!-- font awsome css -->
+    <link rel="stylesheet" href="css/fontAwesome-all.min.css" >
+
   </head>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
@@ -32,7 +35,9 @@
       </li>
     </ul>
     
-    <button class="btn btn-sm btn-outline-secondary" type="button">Winkelwagen</button>
+    <button class="btn btn-sm btn-outline-secondary" type="button">
+    <i class="fas fa-shopping-cart fa-fw"></i> Winkelwagen
+  </button>
 
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Zoeken">
