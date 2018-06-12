@@ -30,8 +30,6 @@ class ContentLogic {
             $sql = "SELECT * FROM vr_bril WHERE id = ?";
             $paramArray = [$id];
 
-            // $sql = "SELECT * FROM 3dbril WHERE id = $id";
-
             $returnArray = $this->DataHandler->ReadSingleData($sql, $paramArray);
             return $returnArray;
 
@@ -41,14 +39,14 @@ class ContentLogic {
     }
 
     public function GetOverViewData() {
-        $sql = "SELECT naam, prijs, afbeelding FROM vr_bril";
+        $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril";
         $returnArray = $this->DataHandler->ReadData($sql);
 
         return $returnArray;
     }
 
     public function GetHomeData() {
-        $sql = "SELECT naam, prijs, afbeelding FROM vr_bril ORDER BY prijs ASC LIMIT 0,6";
+        $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril ORDER BY prijs ASC LIMIT 0,6";
         $returnArray = $this->DataHandler->ReadData($sql);
 
         return $returnArray;
