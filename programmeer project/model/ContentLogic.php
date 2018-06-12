@@ -14,9 +14,9 @@ class ContentLogic {
         $this->PhpUtilities     =   new PhpUtilities      ();
         $this->DataHandler      =   new DataHandler       ($dbName, $username, $pass, $serverAdress, $dbType);
 
-        $columnNames            =   $this->DataHandler->GetColumnNames("3dbril");
-        $dataTypes              =   $this->DataHandler->GetTableTypes("3dbril");
-        $dataNullArray          =   $this->DataHandler->GetTableNullValues("3dbril");
+        $columnNames            =   $this->DataHandler->GetColumnNames("vr_bril");
+        $dataTypes              =   $this->DataHandler->GetTableTypes("vr_bril");
+        $dataNullArray          =   $this->DataHandler->GetTableNullValues("vr_bril");
 
         $this->DataValidator    =   new DataValidator     ($columnNames, $dataTypes, $dataNullArray);
     }
@@ -27,7 +27,7 @@ class ContentLogic {
 
     public function GetSpecificData($id) {
         if ( $this->DataValidator->ValidatePHP_ID($id) ) {
-            $sql = "SELECT * FROM 3dbril WHERE id = ?";
+            $sql = "SELECT * FROM vr_bril WHERE id = ?";
             $paramArray = [$id];
 
             // $sql = "SELECT * FROM 3dbril WHERE id = $id";
@@ -41,7 +41,14 @@ class ContentLogic {
     }
 
     public function GetOverViewData() {
-        $sql = "SELECT naam, merk, prijs, afbeelding FROM 3dbril";
+        $sql = "SELECT naam, prijs, afbeelding FROM vr_bril";
+        $returnArray = $this->DataHandler->ReadData($sql);
+
+        return $returnArray;
+    }
+
+    public function GetHomeData() {
+        $sql = "SELECT naam, prijs, afbeelding FROM vr_bril ORDER BY prijs ASC LIMIT 0,6";
         $returnArray = $this->DataHandler->ReadData($sql);
 
         return $returnArray;

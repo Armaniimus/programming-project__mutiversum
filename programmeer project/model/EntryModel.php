@@ -29,8 +29,8 @@ class EntryModel {
         return $this->ContentLogic->Get404Data();
     }
 
-    public function controller_home() {
-
+    public function GetContentHome() {
+        return $this->ContentLogic->GetHomeData();
     }
 
     public function GetContentSpecificData($id) {

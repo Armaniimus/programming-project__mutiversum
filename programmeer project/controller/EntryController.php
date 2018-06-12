@@ -39,9 +39,9 @@ class EntryController {
                 break;
 
             default:
-                $this->controller_overview();
+                // $this->controller_overview();
                 // $this->controller_specific();
-                // $this->controller_home();
+                $this->controller_home();
                 break;
         }
     }
@@ -51,7 +51,54 @@ class EntryController {
     }
 
     public function controller_home() {
+        $resultArray = $this->EntryModel->GetContentHome();
 
+        // echo "<pre>";
+        // var_dump($resultArray);
+        // echo "</pre>";
+        $contentBoxes = "";
+        for ($i=0; $i < count($resultArray); $i++) {
+            $contentBoxes .= "<div class='col mt-5'>
+                <div class='card' style='width: 18rem;'>
+    	            <div style='height: 300px'>
+                        <img class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
+                    </div>
+    		        <div class='card-body'>
+                        <div style='height: 75px'>
+    	                   <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
+                        </div>
+    	                <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
+    			        <a href='' class='btn btn-primary'>Bekijk product</a>
+                    </div>
+                </div>
+            </div>";
+        }
+        // for ($i=0; $i < 5; $i++) {
+        //     $contentBoxes .= "<div class='col mt-5'>
+		// 		<div class='card' style='width: 18rem;'>
+		// 		    <img class='card-img-top' src='http://via.placeholder.com/150x125' alt='Card image cap'>
+		// 		    <div class='card-body'>
+		// 		      <h5 class='card-title'>Card title</h5>
+		// 		      <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		// 		      <a href='#' class='btn btn-primary'>Bekijk product</a>
+		// 		    </div>
+		// 		</div>
+		// 	</div>";
+        // }
+        // for ($i=0; $i < 5; $i++) {
+        //     $contentBoxes .= "<div class='col mt-5'>
+		// 		<div class='card' style='width: 18rem;'>
+		// 		    <img class='card-img-top' src='http://via.placeholder.com/150x125' alt='Card image cap'>
+		// 		    <div class='card-body'>
+		// 		      <h5 class='card-title'>Card title</h5>
+		// 		      <p class='card-text'>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+		// 		      <a href='#' class='btn btn-primary'>Bekijk product</a>
+		// 		    </div>
+		// 		</div>
+		// 	</div>";
+        // }
+
+        include "view/home.php";
     }
 
     public function controller_specific() {
