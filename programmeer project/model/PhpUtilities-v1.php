@@ -7,6 +7,7 @@ class phpUtilities {
     }
 
     public function ConvertNumericData($option = 0, $array = NULL, $key = 'product_price', $string = NULL) {
+        // Convert to . to , with euro
         if ($option == 0) {
 
             // Loop and convert all shown data
@@ -16,6 +17,7 @@ class phpUtilities {
             }
             return $array;
 
+        // convert back
         } elseif ($option == 1 || $option == "update" || $option == "create") {
             // $data is a string
             $string = str_Replace(",", ".", $string);
