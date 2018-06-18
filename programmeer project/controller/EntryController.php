@@ -38,6 +38,10 @@ class EntryController {
                 $this->controller_overview();
                 break;
 
+            case 'search':
+                $this->controller_search();
+                break;
+
             default:
                 // $this->controller_overview();
                 // $this->controller_specific();
@@ -51,28 +55,11 @@ class EntryController {
     }
 
     public function controller_home() {
-        $resultArray = $this->EntryModel->GetContentHome();
+        $contentBoxes = $this->EntryModel->GetContentHome();
 
         // echo "<pre>";
         // var_dump($resultArray);
         // echo "</pre>";
-        $contentBoxes = "";
-        for ($i=0; $i < count($resultArray); $i++) {
-            $contentBoxes .= "<div class='col mt-5'>
-                <div class='card' style='width: 18rem;'>
-    	            <div style='height: 300px'>
-                        <img class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
-                    </div>
-    		        <div class='card-body'>
-                        <div style='height: 75px'>
-    	                   <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
-                        </div>
-    	                <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
-    			        <a href='' class='btn btn-primary'>Bekijk product</a>
-                    </div>
-                </div>
-            </div>";
-        }
 
         include "view/home.php";
     }
@@ -92,16 +79,16 @@ class EntryController {
             $this->controller_404();
         }
 
-
-
     }
 
     public function controller_overview() {
-        $resultArray = $this->EntryModel->GetContentOverViewData();
+        $contentBoxes = $this->EntryModel->GetContentOverViewData();
+        include "view/home.php";
+    }
 
-        echo "<pre>";
-        var_dump($resultArray);
-        echo "</pre>";
+    public function controller_search() {
+        $contentBoxes = $this->EntryModel->GetContentSearchData();
+        include "view/home.php";
     }
 }
 

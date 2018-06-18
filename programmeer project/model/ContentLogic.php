@@ -41,8 +41,9 @@ class ContentLogic {
     public function GetOverViewData() {
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril";
         $returnArray = $this->DataHandler->ReadData($sql);
+        $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
 
-        return $returnArray;
+        return $this->FormatEndResult($priceConvertedArray);
     }
 
     public function GetHomeData() {
@@ -50,7 +51,46 @@ class ContentLogic {
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
 
-        return $priceConvertedArray;
+        return $this->FormatEndResult($priceConvertedArray);
+    }
+
+    public function GetSearchData() {
+        if (isset($_POST['search']) ) {
+            $search = $_POST['search'];
+        } else {
+            $search = '';
+        }
+
+        $where = $this->DataHandler->SetSearchWhere($search, "vr_bril");
+        $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril $where";
+
+        $returnArray = $this->DataHandler->ReadData($sql);
+        $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
+
+        return $this->FormatEndResult($priceConvertedArray);
+    }
+
+    public function FormatEndResult($resultArray) {
+        $contentBoxes = "";
+        for ($i=0; $i < count($resultArray); $i++) {
+            $contentBoxes .= "<div class='col mt-5'>
+                <div class='card' style='width: 18rem;'>
+                    <div style='height: 300px; padding: 5px;'>
+                        <img style='max-height:290px; imagesize:contain;' class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
+                    </div>
+                    <div class='card-body'>
+                        <div style='height: 75px'>
+                           <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
+                        </div>
+                        <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
+                        <a href='' class='btn btn-primary'>Bekijk product</a>
+                    </div>
+                </div>
+            </div>";
+        }
+
+        return $contentBoxes;
     }
 }
+
 ?>

@@ -40,4 +40,8 @@ class EntryModel {
     public function GetContentOverViewData() {
         return $this->ContentLogic->GetOverViewData();
     }
+
+    public function GetContentSearchData() {
+        return $this->ContentLogic->GetSearchData();
+    }
 }
