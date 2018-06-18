@@ -25,7 +25,7 @@
         <a class="nav-link active" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Producten</a>
+        <a class="nav-link" href="index.php?view=overview">Producten</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Contact</a>
@@ -34,8 +34,8 @@
 
     <button class="btn btn-sm btn-outline-secondary" type="button">Winkelwagen</button>
 
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Zoeken">
+    <form class="form-inline my-2 my-lg-0" action="index.php?view=search" method="post">
+      <input class="form-control mr-sm-2" name="search" placeholder="Zoeken">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
     </form>
   </div>
