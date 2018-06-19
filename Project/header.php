@@ -28,10 +28,10 @@
         <a class="nav-link active" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Producten</a>
+        <a class="nav-link" href="producten.php">Producten</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="contact.php">Contact</a>
       </li>
     </ul>
     
