@@ -88,6 +88,11 @@ class EntryController {
 
     public function controller_search() {
         $contentBoxes = $this->EntryModel->GetContentSearchData();
+
+        if (isset($_POST["search"])) {
+            $previousSearch = $_POST["search"];
+        }
+
         include "view/home.php";
     }
 }

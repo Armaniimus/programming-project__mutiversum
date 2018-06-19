@@ -34,8 +34,13 @@
 
     <button class="btn btn-sm btn-outline-secondary" type="button">Winkelwagen</button>
 
+    <?php
+        if (!isset($previousSearch)) {
+            $previousSearch = '';
+        }
+     ?>
     <form class="form-inline my-2 my-lg-0" action="index.php?view=search" method="post">
-      <input class="form-control mr-sm-2" name="search" placeholder="Zoeken">
+      <input class="form-control mr-sm-2" name="search" placeholder="Zoeken" value="<?php echo $previousSearch ?>">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
     </form>
   </div>
