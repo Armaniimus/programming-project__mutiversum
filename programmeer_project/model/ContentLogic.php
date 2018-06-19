@@ -83,7 +83,7 @@ class ContentLogic {
                            <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
                         </div>
                         <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
-                        <a href='' class='btn btn-primary'>Bekijk product</a>
+                        <a href='index.php?view=specific&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Bekijk product</a>
                     </div>
                 </div>
             </div>";

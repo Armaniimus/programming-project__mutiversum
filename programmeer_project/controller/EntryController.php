@@ -71,14 +71,11 @@ class EntryController {
 
             $resultArray = $this->EntryModel->GetContentSpecificData($id);
 
-            echo "<pre>";
-            var_dump($resultArray);
-            echo "</pre>";
+            include "view/specific.php";
 
         } else {
             $this->controller_404();
         }
-
     }
 
     public function controller_overview() {

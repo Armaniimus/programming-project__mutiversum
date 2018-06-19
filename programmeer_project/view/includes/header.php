@@ -28,7 +28,7 @@
         <a class="nav-link" href="index.php?view=overview">Producten</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Contact</a>
+        <a class="nav-link" href="index.php?view=contact">Contact</a>
       </li>
     </ul>
 
