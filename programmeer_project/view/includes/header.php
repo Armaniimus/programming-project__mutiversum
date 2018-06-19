@@ -8,6 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
 
+    <!-- Font Awsome CSS  -->
+    <link rel="stylesheet" href="view/assets/css/fontAwesome-all.min.css" >
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="view/assets/css/grid-v1.2.css" >
+    <link rel="stylesheet" href="view/assets/css/master.css" >
+
   </head>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>

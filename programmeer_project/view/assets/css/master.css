@@ -1,0 +1,44 @@
+.specific--naam {
+    font-size: 20px;
+}
+
+.specific--content {
+    height: 225px;
+}
+
+.specific--img {
+    height: 223px;
+}
+
+.specific--img--wrap {
+    height: 225px;
+}
+
+.specific--prijs {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ff3333;
+}
+
+.specific--beschrijving {}
+
+.specific--contentbox {
+    margin-top: 50px;
+}
+
+.winkelwagen-knop {
+    width: 150px;
+    padding: 5px;
+    border-radius: 3px;
+
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+
+    cursor: pointer;
+}
+
+.winkelwagen-knop:hover {
+    background-color: #0069d9;
+    border-color: #0069d9;
+}
