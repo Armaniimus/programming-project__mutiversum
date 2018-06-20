@@ -34,12 +34,28 @@ class EntryController {
                 $this->controller_specific();
                 break;
 
-            case 'overview':
+            case 'products':
                 $this->controller_overview();
                 break;
 
             case 'search':
                 $this->controller_search();
+                break;
+
+            case 'admin';
+                $this->controller_admin();
+                break;
+
+            case 'admin_products';
+                $this->controller_adminProducts();
+                break;
+
+            case 'admin_specific';
+                $this->controller_adminSpecific();
+                break;
+
+            case 'admin_search';
+                $this->controller_adminSearch();
                 break;
 
             default:
@@ -65,7 +81,6 @@ class EntryController {
     }
 
     public function controller_specific() {
-
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
@@ -91,6 +106,87 @@ class EntryController {
         }
 
         include "view/home.php";
+    }
+
+    public function controller_admin() {
+        $admin = "admin";
+        $pass = "wachtwoord";
+
+        $check1_1 = 0;
+        $check1_2 = 0;
+        $check2_1 = 0;
+        $check2_2 = 0;
+        $check3 = 0;
+
+        if (isset($_SESSION['user']) && $_SESSION['user'] == $admin) {
+            $check3 = 1;
+        } else if (isset($_POST['username'])) {
+            $admin_input = $_POST['username'];
+            $check1_1 = 1;
+
+            if ($_POST['username'] == $admin) {
+                $check1_2 = 1;
+            }
+
+        } else {
+            $admin_input = '';
+        }
+
+        if (isset($_POST['password'])) {
+            $check2_1 = 1;
+            if ($_POST['password'] == $pass) {
+                $check2_2 = 1;
+            }
+        }
+
+        // check if form == filled
+        if ($check1_1 && $check2_1) {
+            // check if login is unsuccesfull
+            if ($check1_2 == 0 || $check2_2 == 0) {
+                $message = "gebruikersnaam of wachtwoord is foutief";
+
+            // check if login is succesfull
+            } else if ($check1_2 && $check2_2) {
+                $check3 = 1;
+            }
+        }
+
+        if ($check3 == 1) {
+            $_SESSION['user'] = "admin";
+            include "view/admin_panel.php";
+
+        } else {
+            include "view/admin_login.php";
+        }
+        // var_dump($_SESSION);
+    }
+
+    public function controller_adminSpecific() {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+
+            $resultArray = $this->EntryModel->GetContentSpecificData($id);
+
+            include "view/admin_specific.php";
+
+        } else {
+            $this->controller_404();
+        }
+    }
+
+    public function controller_adminProducts() {
+        $contentBoxes = $this->EntryModel->GetContentOverViewData();
+        include "view/admin_products.php";
+    }
+
+    public function controller_adminSearch() {
+        $contentBoxes = $this->EntryModel->GetContentSearchData();
+
+        if (isset($_POST["search"])) {
+            $previousSearch = $_POST["search"];
+        }
+
+        include "view/admin_products.php";
     }
 }
 

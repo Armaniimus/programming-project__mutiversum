@@ -2,7 +2,7 @@
 <html lang="nl">
     <?php include "includes/meta.php"; ?>
 <body>
-    <?php include "includes/header.php"; ?>
+    <?php include "includes/admin_header.php"; ?>
 	<main>
 		<div class="container">
 			<div class="row">

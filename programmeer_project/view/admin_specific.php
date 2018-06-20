@@ -2,7 +2,7 @@
 <html lang="nl">
     <?php include "includes/meta.php"; ?>
 <body>
-    <?php include "includes/header.php"; ?>
+    <?php include "includes/admin_header.php"; ?>
     <main>
 
         <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
