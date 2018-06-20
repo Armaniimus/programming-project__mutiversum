@@ -34,7 +34,7 @@ class EntryController {
                 $this->controller_specific();
                 break;
 
-            case 'overview':
+            case 'products':
                 $this->controller_overview();
                 break;
 
@@ -44,6 +44,18 @@ class EntryController {
 
             case 'admin';
                 $this->controller_admin();
+                break;
+
+            case 'admin_products';
+                $this->controller_adminProducts();
+                break;
+
+            case 'admin_specific';
+                $this->controller_adminSpecific();
+                break;
+
+            case 'admin_search';
+                $this->controller_adminSearch();
                 break;
 
             default:
@@ -69,7 +81,6 @@ class EntryController {
     }
 
     public function controller_specific() {
-
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
@@ -147,7 +158,35 @@ class EntryController {
         } else {
             include "view/admin_login.php";
         }
-        var_dump($_SESSION);
+        // var_dump($_SESSION);
+    }
+
+    public function controller_adminSpecific() {
+        if (isset($_GET["id"])) {
+            $id = $_GET["id"];
+
+            $resultArray = $this->EntryModel->GetContentSpecificData($id);
+
+            include "view/admin_specific.php";
+
+        } else {
+            $this->controller_404();
+        }
+    }
+
+    public function controller_adminProducts() {
+        $contentBoxes = $this->EntryModel->GetContentOverViewData();
+        include "view/admin_products.php";
+    }
+
+    public function controller_adminSearch() {
+        $contentBoxes = $this->EntryModel->GetContentSearchData();
+
+        if (isset($_POST["search"])) {
+            $previousSearch = $_POST["search"];
+        }
+
+        include "view/admin_products.php";
     }
 }
 

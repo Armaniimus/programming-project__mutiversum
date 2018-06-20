@@ -19,7 +19,7 @@
                     <a class="nav-link active" href="index.php?view=admin">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=overview">Producten</a>
+                    <a class="nav-link" href="index.php?view=admin_products">Producten</a>
                 </li>
             </ul>
 
@@ -28,7 +28,7 @@
                     $previousSearch = '';
                 }
              ?>
-            <form class="form-inline my-2 my-lg-0" action="index.php?view=search" method="post">
+            <form class="form-inline my-2 my-lg-0" action="index.php?view=admin_search" method="post">
                   <input class="form-control mr-sm-2" name="search" placeholder="Zoeken" value="<?php echo $previousSearch ?>">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
             </form>
