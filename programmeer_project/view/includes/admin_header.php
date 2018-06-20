@@ -21,12 +21,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?view=overview">Producten</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=contact">Contact</a>
-                </li>
             </ul>
-
-            <button class="btn btn-sm btn-outline-secondary" type="button">Winkelwagen</button>
 
             <?php
                 if (!isset($previousSearch)) {
