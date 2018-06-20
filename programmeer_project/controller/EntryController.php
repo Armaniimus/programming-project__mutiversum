@@ -144,14 +144,10 @@ class EntryController {
             $_SESSION['user'] = "admin";
             include "view/admin_panel.php";
 
-            var_dump($_SESSION);
-
         } else {
             include "view/admin_login.php";
         }
-
-
-
+        var_dump($_SESSION);
     }
 }
 

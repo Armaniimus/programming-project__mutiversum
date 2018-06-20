@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <?php include "meta.php"?>
+    <?php include "includes/meta.php"?>
     <body>
-        <?php include "adminheader.php"?>
-
 
         <form action="index.php?view=admin" method="post">
 
             <div class="float-l col-xs-2"></div>
             <div class="float-l col-xs-8 login--center">
                 <?php
-                    // echo $check1_1;
-                    // echo $check1_2;
-                    // echo $check2_1;
-                    // echo $check2_2;
-
                     if (isset($message)) {
                         echo "<div style='border: 1px black solid; height: 50px; width: 300px;'>
                             " . $message . "
@@ -36,3 +29,10 @@
         </form>
     </body>
 </html>
+
+<?php
+// echo $check1_1;
+// echo $check1_2;
+// echo $check2_1;
+// echo $check2_2;
+?>
