@@ -1,5 +1,8 @@
 <?php 
 
-include "header.php";
+include "partials/header.php";
 
 ?>
+
+<div class="container">
+</div>
