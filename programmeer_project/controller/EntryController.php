@@ -162,31 +162,42 @@ class EntryController {
     }
 
     public function controller_adminSpecific() {
-        if (isset($_GET["id"])) {
-            $id = $_GET["id"];
-
-            $resultArray = $this->EntryModel->GetContentSpecificData($id);
-
-            include "view/admin_specific.php";
-
+        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
+            $this->controller_home();
         } else {
-            $this->controller_404();
+            if (isset($_GET["id"])) {
+                $id = $_GET["id"];
+
+                $resultArray = $this->EntryModel->GetContentSpecificData($id);
+                include "view/admin_specific.php";
+
+            } else {
+                $this->controller_404();
+            }
         }
     }
 
     public function controller_adminProducts() {
-        $contentBoxes = $this->EntryModel->GetContentOverViewData();
-        include "view/admin_products.php";
+        if (!isset($_SESSION['user']) || $_SESSION['user'] !== "admin" ) {
+            $this->controller_home();
+        } else {
+            $contentBoxes = $this->EntryModel->GetContentOverViewData("admin");
+            include "view/admin_products.php";
+        }
     }
 
     public function controller_adminSearch() {
-        $contentBoxes = $this->EntryModel->GetContentSearchData();
+        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
+            $this->controller_home();
+        } else {
+            $contentBoxes = $this->EntryModel->GetContentSearchData("admin");
 
-        if (isset($_POST["search"])) {
-            $previousSearch = $_POST["search"];
+            if (isset($_POST["search"])) {
+                $previousSearch = $_POST["search"];
+            }
+
+            include "view/admin_products.php";
         }
-
-        include "view/admin_products.php";
     }
 }
 
