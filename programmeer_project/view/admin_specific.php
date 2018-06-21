@@ -5,9 +5,9 @@
     <?php include "includes/admin_header.php"; ?>
     <main>
 
-        <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
+        <div class="float-l col-xs-0    col-s-1     col-l-2"><br></div>
 
-        <div class="float-l col-xs-12   col-s-10    col-l-6">
+        <div class="float-l col-xs-12   col-s-10    col-l-8">
             <div class="specific--contentbox">
                 <h3 class="specific--naam"><?php echo $resultArray["naam"] ?></h3>
                 <div class"row">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-        <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
+        <div class="float-l col-xs-0    col-s-1     col-l-2"><br></div>
     </main>
 
     <?php

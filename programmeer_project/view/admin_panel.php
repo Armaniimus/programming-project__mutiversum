@@ -15,8 +15,8 @@
                 </div>
 
                 <div class="admin-panel--buttonwrap float-l col-xs-12 col-m-6">
-                    <form class="" action="#" method="post">
-                        <input class="adminpanel--margin" style="border: 1px black solid;" type="text" name="" value=""><br>
+                    <form class="" action="index.php?view=admin_search" method="post">
+                        <input class="adminpanel--margin" style="border: 1px #333 solid;" type="text" name="search" value=""><br>
                         <input class="adminpanel--buttons" type="submit" name="" value="Zoek product">
                     </form>
                 </div>

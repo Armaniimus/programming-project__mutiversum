@@ -37,11 +37,11 @@ class EntryModel {
         return $this->ContentLogic->GetSpecificData($id);
     }
 
-    public function GetContentOverViewData() {
-        return $this->ContentLogic->GetOverViewData();
+    public function GetContentOverViewData($option = null) {
+        return $this->ContentLogic->GetOverViewData($option);
     }
 
-    public function GetContentSearchData() {
-        return $this->ContentLogic->GetSearchData();
+    public function GetContentSearchData($option = null) {
+        return $this->ContentLogic->GetSearchData($option);
     }
 }

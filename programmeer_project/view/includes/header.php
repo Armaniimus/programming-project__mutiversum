@@ -14,7 +14,7 @@
                     <a class="nav-link active" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="index.php?view=overview">Producten</a>
+                    <a class="nav-link" href="index.php?view=products">Producten</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="index.php?view=contact">Contact</a>
