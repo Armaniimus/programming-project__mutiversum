@@ -5,7 +5,7 @@
 
         <form action="index.php?view=admin" method="post">
 
-            <div class="float-l col-xs-2"></div>
+            <div class="float-l col-xs-2"><br></div>
             <div class="float-l col-xs-8 login--center">
                 <?php
                     if (isset($message)) {
@@ -23,7 +23,7 @@
 
                 <input class="winkelwagen-knop" type="submit" name="submit" value="login">
             </div>
-            <div class="float-l col-xs-2"></div>
+            <div class="float-l col-xs-2"><br></div>
 
 
         </form>

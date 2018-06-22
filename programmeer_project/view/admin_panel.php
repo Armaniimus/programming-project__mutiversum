@@ -3,7 +3,7 @@
     <?php include "includes/meta.php"; ?>
     <body>
         <?php include "includes/admin_header.php"; ?>
-        <div class="float-l col-xs-1"></div>
+        <div class="float-l col-xs-1"><br></div>
 
         <div class="adminpanel--centerbox float-l col-xs-10">
             <div class="row">
@@ -22,6 +22,6 @@
                 </div>
             </div>
         </div>
-        <div class="float-l col-xs-1"></div>
+        <div class="float-l col-xs-1"><br></div>
     </body>
 </html>
