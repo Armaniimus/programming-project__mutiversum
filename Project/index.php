@@ -1,7 +1,6 @@
 <?php
 
 include "partials/header.php";
-include "partials/footer.php";
 
 ?>
 
@@ -71,3 +70,9 @@ include "partials/footer.php";
 		</div>
 	</div>
 </body>
+
+<?php
+
+include "partials/footer.php";
+
+?>
