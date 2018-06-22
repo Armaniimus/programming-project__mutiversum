@@ -21,7 +21,7 @@
                 <label for="password">Wachtwoord</label><br>
                 <input type="text" name="password" id="password"><br><br>
 
-                <input class="winkelwagen-knop" type="submit" name="submit" value="login">
+                <input class="inlog-knop" type="submit" name="submit" value="login">
             </div>
             <div class="float-l col-xs-2"><br></div>
         </form>
