@@ -9,7 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" > 
 
     <!-- font awsome css -->
-    <link rel="stylesheet" href="css/fontAwesome-all.min.css" >
+    <link rel="stylesheet" href="assets/css/fontAwesome-all.min.css" >
+
+    <!-- Google font Quicksand -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="/assets/css/style.css" >
 
   </head>
 

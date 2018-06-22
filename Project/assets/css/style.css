@@ -1,0 +1,21 @@
+/* Primary colors
+* Blue : #2C3E50
+* Yellow : #F1C40F
+* Green : #1ABC9C
+*/
+
+body {
+    font-family: 'Quicksand', sans-serif !important;
+    margin-top: 60px !important;
+    overflow-x: hidden;
+}
+
+#map {
+    height: 390px;  /* The height is 390 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
+
+.contact-table {
+    width: 100px;
+}
+
