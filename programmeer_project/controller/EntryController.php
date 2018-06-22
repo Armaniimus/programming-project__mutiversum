@@ -142,6 +142,8 @@ class EntryController {
 
             if (isset($_POST["search"])) {
                 $previousSearch = $_POST["search"];
+            } else {
+                $previousSearch = '';
             }
 
             include "view/admin_products.php";
