@@ -18,7 +18,8 @@
 }
 
 .specific--img {
-    height: 223px;
+    max-height: 222px; */
+    max-width: 100%;
 }
 
 .specific--img--wrap {
