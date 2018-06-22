@@ -81,7 +81,15 @@ class ContentLogic {
         }
     }
 
-    public function FormatProducts($resultArray) {
+    public function FormatProducts($resultArray, $buttons = NULL) {
+        if ($buttons == NULL) {
+            $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'>Bekijk product</a>
+            <br>
+            <br>
+            <div class='winkelwagen-knop'>+ In winkelwagen</div>
+            ";
+        }
+
         $contentBoxes = "";
         for ($i=0; $i < count($resultArray); $i++) {
             $contentBoxes .= "<div class='col mt-5'>
@@ -94,48 +102,44 @@ class ContentLogic {
                            <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
                         </div>
                         <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
-                        <a href='index.php?view=specific&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Bekijk product</a>
+                        $buttons
                     </div>
                 </div>
             </div>";
-        }
 
         return $contentBoxes;
     }
 
     public function FormatAdminProducts($resultArray) {
-        $adminBar = "<div
-            <a></a>
-            <a></a>
-        </div>";
 
-        $contentBoxes = "";
-        for ($i=0; $i < count($resultArray); $i++) {
-            $contentBoxes .= "<div class='col mt-5'>
-                <div class='card' style='width: 18rem;'>
-                    <div style='height: 300px; padding: 15px;'>
-                        <img style='max-height:290px; imagesize:contain;' class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
-                    </div>
-                    <div class='card-body'>
-                        <div style='height: 75px'>
-                           <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
-                        </div>
-                        <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
-                        <div>
-                            <a href='index.php?view=admin_update&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Wijzig Product informatie</a>
-                        </div>
-                        <br>
-                        <div>
-                            <a href='index.php?view=admin_updatefoto&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Wijzig Foto</a>
-                            <a href='index.php?view=admin_delete&id=" . $resultArray[$i]['id'] . "' class='btn btn-danger'>Delete Product</a>
-                        </div>
-
-                    </div>
-                </div>
-            </div>";
+        if (isset($_POST['search'])) {
+            $previousSearch = $_POST['search'];
+        } else {
+            $previousSearch = "";
         }
 
-        return $contentBoxes;
+        $buttons = "<div>
+            <form action='index.php?view=admin_update&id={id}' method='post'>
+                <input class='btn btn-primary' type='submit' name='multiversum' value='Wijzig Product informatie'/>
+                <input type='hidden' name='search' value='$previousSearch'/>
+            </form>
+        </div>
+        <br>
+        <div style='padding-left: 15px;'>
+            <div class='row'>
+                <form action='index.php?view=admin_updatefoto&id={id}' method='post'>
+                    <input class='btn btn-primary' type='submit' name='multiversum' value='Wijzig Foto'/>
+                    <input type='hidden' name='search' value='$previousSearch'/>
+                </form>
+
+                <form style='padding-left: 10px;' class='float-l' action='index.php?view=admin_delete&id={id}' method='post'>
+                    <input class='btn btn-danger' type='submit' name='multiversum' value='Delete Product'/>
+                    <input type='hidden' name='search' value='$previousSearch'/>
+                </form>
+            </div>
+        </div>";
+
+        return $this->FormatProducts($resultArray, $buttons);
     }
 }
 
