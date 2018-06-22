@@ -117,9 +117,6 @@ Class HtmlElements {
         } else {
             $firstItem = 0;
         }
-        // echo "<pre>";
-        // var_dump($data);
-        // echo "</pre>";
 
         $form .= $this->GenerateFormFieldWithLabel($formName, $data[$columnNames[0]], $columnNames[0], $dataTypesArray[0], $requiredNullArray[0], $firstItem);
 
