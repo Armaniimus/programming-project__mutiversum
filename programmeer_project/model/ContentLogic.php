@@ -119,6 +119,15 @@ class ContentLogic {
                            <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
                         </div>
                         <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
+                        <div>
+                            <a href='index.php?view=admin_update&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Wijzig Product informatie</a>
+                        </div>
+                        <br>
+                        <div>
+                            <a href='index.php?view=admin_updatefoto&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Wijzig Foto</a>
+                            <a href='index.php?view=admin_delete&id=" . $resultArray[$i]['id'] . "' class='btn btn-danger'>Delete Product</a>
+                        </div>
+
                     </div>
                 </div>
             </div>";
