@@ -117,7 +117,6 @@ class ContentLogic {
                            <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
                         </div>
                         <p class='card-text'>" . $resultArray[$i]['prijs'] . "</p>
-                        <a href='index.php?view=admin_specific&id=" . $resultArray[$i]['id'] . "' class='btn btn-primary'>Bekijk product</a>
                     </div>
                 </div>
             </div>";

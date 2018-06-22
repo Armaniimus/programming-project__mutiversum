@@ -50,10 +50,6 @@ class EntryController {
                 $this->controller_adminProducts();
                 break;
 
-            case 'admin_specific';
-                $this->controller_adminSpecific();
-                break;
-
             case 'admin_search';
                 $this->controller_adminSearch();
                 break;
@@ -153,22 +149,6 @@ class EntryController {
 
         } else {
             include "view/admin_login.php";
-        }
-    }
-
-    public function controller_adminSpecific() {
-        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
-            $this->controller_home();
-        } else {
-            if (isset($_GET["id"])) {
-                $id = $_GET["id"];
-
-                $resultArray = $this->EntryModel->GetContentSpecificData($id);
-                include "view/admin_specific.php";
-
-            } else {
-                $this->controller_404();
-            }
         }
     }
 
