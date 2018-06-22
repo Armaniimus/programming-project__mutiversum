@@ -54,6 +54,8 @@ class ContentLogic {
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril ORDER BY prijs ASC LIMIT 0,6";
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
+
+        return $this->FormatProducts($priceConvertedArray);
     }
 
     public function GetSearchData($option = null) {
