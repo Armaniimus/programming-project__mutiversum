@@ -17,6 +17,7 @@
 
                     <div class="specific--content float-l col-xs-6">
                         <div class="specific--prijs"><?php echo $resultArray["prijs"] ?></div>
+                        <div class="specific--platform">Platform: <?php echo $resultArray["platform"] ?></div>
                         <div class="specific--resolutie">Resolutie: <?php echo $resultArray["resolutie"] ?></div>
                         <div class="specific--3d_2d">3d/2d: <?php echo $resultArray["3d_2d"] ?></div>
                         <div class="specific--merk">Merk: <?php echo $resultArray["merk"] ?></div>

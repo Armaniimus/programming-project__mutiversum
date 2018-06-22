@@ -26,11 +26,13 @@ class ContentLogic {
     }
 
     public function GetSpecificData($id) {
-        if ( $this->DataValidator->ValidatePHP_ID($id) ) {
+        if ($this->DataValidator->ValidatePHP_ID($id) ) {
             $sql = "SELECT * FROM vr_bril WHERE id = ?";
             $paramArray = [$id];
 
             $returnArray = $this->DataHandler->ReadSingleData($sql, $paramArray);
+
+            $returnArray["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray["prijs"]);
             return $returnArray;
 
         } else {
@@ -41,7 +43,7 @@ class ContentLogic {
     public function GetOverViewData($option = null) {
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril";
         $returnArray = $this->DataHandler->ReadData($sql);
-        $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
+        $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
         if ($option == "admin") {
             return $this->FormatAdminProducts($priceConvertedArray);
@@ -53,7 +55,7 @@ class ContentLogic {
     public function GetHomeData() {
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril ORDER BY prijs ASC LIMIT 0,6";
         $returnArray = $this->DataHandler->ReadData($sql);
-        $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
+        $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
         return $this->FormatProducts($priceConvertedArray);
     }
@@ -69,7 +71,7 @@ class ContentLogic {
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril $where";
 
         $returnArray = $this->DataHandler->ReadData($sql);
-        $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
+        $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
 
         if ($option == "admin") {
