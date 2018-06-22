@@ -25,9 +25,9 @@
 }
 
 /*test function*/
-[class*="col-"] {
+/* [class*="col-"] {
     border: solid green 1px;
-}
+} */
 
 /* For smallest devices: */
 .col-xs-1 {width: 8.33%;}
