@@ -73,10 +73,6 @@ class EntryController {
     public function controller_home() {
         $contentBoxes = $this->EntryModel->GetContentHome();
 
-        // echo "<pre>";
-        // var_dump($resultArray);
-        // echo "</pre>";
-
         include "view/home.php";
     }
 
@@ -158,7 +154,6 @@ class EntryController {
         } else {
             include "view/admin_login.php";
         }
-        // var_dump($_SESSION);
     }
 
     public function controller_adminSpecific() {
