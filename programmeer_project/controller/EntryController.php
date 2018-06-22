@@ -55,6 +55,18 @@ class EntryController {
                 $this->controller_adminSearch();
                 break;
 
+            case 'admin_create';
+                $this->controller_adminCreate();
+                break;
+
+            case 'admin_update';
+                $this->controller_adminUpdate();
+                break;
+
+            case 'admin_delete';
+                $this->controller_adminDelete();
+                break;
+
             case 'logout';
                 $this->controller_Logout();
                 break;
