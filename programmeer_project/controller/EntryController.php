@@ -27,6 +27,10 @@ class EntryController {
                 $this->controller_404();
                 break;
 
+            case 'contact':
+                $this->controller_contact();
+                break;
+
             case 'home':
                 $this->controller_home();
                 break;
@@ -87,6 +91,10 @@ class EntryController {
         $contentBoxes = $this->EntryModel->GetContentHome();
 
         include "view/home.php";
+    }
+
+    public function controller_contact() {
+        include "view/contact.php";
     }
 
     public function controller_specific() {
