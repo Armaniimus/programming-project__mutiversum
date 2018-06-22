@@ -21,7 +21,7 @@
                 </li>
             </ul>
 
-            <button class="btn btn-sm btn-outline-secondary" type="button">Winkelwagen</button>
+            <button class="btn btn-sm btn-outline-secondary mr-3" type="button">Winkelwagen</button>
 
             <?php
                 if (!isset($previousSearch)) {
