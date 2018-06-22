@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"></head>
 <body>
 
-	<div class="card-footer text-muted" style="background-color: #bdc3c7; width: 100%; position: fixed; bottom: 0; text-align: center;">
+	<div class="card-footer text-muted" style="background-color: #bdc3c7; width: 100%; bottom: 0; text-align: center;">
 		Copyright © 2018 Multiversum
 	</div>
 
