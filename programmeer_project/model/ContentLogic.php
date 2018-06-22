@@ -86,7 +86,7 @@ class ContentLogic {
         for ($i=0; $i < count($resultArray); $i++) {
             $contentBoxes .= "<div class='col mt-5'>
                 <div class='card' style='width: 18rem;'>
-                    <div style='height: 300px; padding: 5px;'>
+                    <div style='height: 300px; padding: 15px;'>
                         <img style='max-height:290px; imagesize:contain;' class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
                     </div>
                     <div class='card-body'>
@@ -113,7 +113,7 @@ class ContentLogic {
         for ($i=0; $i < count($resultArray); $i++) {
             $contentBoxes .= "<div class='col mt-5'>
                 <div class='card' style='width: 18rem;'>
-                    <div style='height: 300px; padding: 5px;'>
+                    <div style='height: 300px; padding: 15px;'>
                         <img style='max-height:290px; imagesize:contain;' class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
                     </div>
                     <div class='card-body'>
