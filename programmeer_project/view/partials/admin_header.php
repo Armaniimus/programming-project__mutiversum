@@ -32,6 +32,7 @@
                   <input class="form-control mr-sm-2" name="search" placeholder="Zoeken" value="<?php echo $previousSearch ?>">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
             </form>
+            <a class="uitlog-knop" href="index.php?view=logout">Log Uit</a>
         </div>
     </nav>
 </header>
