@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <?php include "includes/meta.php"; ?>
+    <?php include "partials/meta.php"; ?>
 <body>
-    <?php include "includes/header.php"; ?>
+    <?php include "partials/header.php"; ?>
 	<main>
 		<div class="container">
 			<div class="row">
@@ -10,5 +10,6 @@
 			</div>
 		</div>
 	</main>
+    <?php include "partials/footer.php"; ?>
 </body>
 </html>

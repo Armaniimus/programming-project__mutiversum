@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <?php include "includes/meta.php"?>
-    <body>
-
+<?php include "partials/meta.php"?>
+<body>
+    <main>
         <form action="index.php?view=admin" method="post">
 
             <div class="float-l col-xs-2"><br></div>
@@ -24,10 +24,9 @@
                 <input class="winkelwagen-knop" type="submit" name="submit" value="login">
             </div>
             <div class="float-l col-xs-2"><br></div>
-
-
         </form>
-    </body>
+    </main>
+</body>
 </html>
 
 <?php

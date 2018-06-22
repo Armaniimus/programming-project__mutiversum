@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <?php include "includes/meta.php"; ?>
-    <body>
-        <?php include "includes/admin_header.php"; ?>
+<?php include "partials/meta.php"; ?>
+<body>
+    <?php include "partials/admin_header.php"; ?>
+    <main>
         <div class="float-l col-xs-1"><br></div>
 
         <div class="adminpanel--centerbox float-l col-xs-10">
@@ -23,5 +24,7 @@
             </div>
         </div>
         <div class="float-l col-xs-1"><br></div>
-    </body>
+    </main>
+    <?php include "partials/footer.php"; ?>
+</body>
 </html>

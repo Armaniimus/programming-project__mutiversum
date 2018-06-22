@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl">
-    <?php include "includes/meta.php"; ?>
+    <?php include "partials/meta.php"; ?>
 <body>
-    <?php include "includes/header.php"; ?>
+    <?php include "partials/header.php"; ?>
     <main>
-
         <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
 
         <div class="float-l col-xs-12   col-s-10    col-l-6">
@@ -36,5 +35,6 @@
         </div>
         <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
     </main>
+    <?php include "partials/footer.php"; ?>
 </body>
 </html>
