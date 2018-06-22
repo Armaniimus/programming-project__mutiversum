@@ -44,9 +44,9 @@ class ContentLogic {
         $priceConvertedArray = $this->PhpUtilities->ConvertNumericData(0, $returnArray, 'prijs');
 
         if ($option == "admin") {
-            return $this->FormatAdminEndResult($priceConvertedArray);
+            return $this->FormatAdminProducts($priceConvertedArray);
         } else {
-            return $this->FormatEndResult($priceConvertedArray);
+            return $this->FormatProducts($priceConvertedArray);
         }
     }
 
@@ -71,13 +71,13 @@ class ContentLogic {
 
 
         if ($option == "admin") {
-            return $this->FormatAdminEndResult($priceConvertedArray);
+            return $this->FormatAdminProducts($priceConvertedArray);
         } else {
-            return $this->FormatEndResult($priceConvertedArray);
+            return $this->FormatProducts($priceConvertedArray);
         }
     }
 
-    public function FormatEndResult($resultArray) {
+    public function FormatProducts($resultArray) {
         $contentBoxes = "";
         for ($i=0; $i < count($resultArray); $i++) {
             $contentBoxes .= "<div class='col mt-5'>
@@ -99,7 +99,7 @@ class ContentLogic {
         return $contentBoxes;
     }
 
-    public function FormatAdminEndResult($resultArray) {
+    public function FormatAdminProducts($resultArray) {
         $adminBar = "<div
             <a></a>
             <a></a>
