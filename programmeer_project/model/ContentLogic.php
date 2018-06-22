@@ -82,7 +82,9 @@ class ContentLogic {
     }
 
     public function FormatProducts($resultArray, $buttons = NULL) {
+        $href = 0;
         if ($buttons == NULL) {
+            $href = 1;
             $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'>Bekijk product</a>
             <br>
             <br>
@@ -94,9 +96,9 @@ class ContentLogic {
         for ($i=0; $i < count($resultArray); $i++) {
             $contentBoxes .= "<div class='col mt-5'>
                 <div class='card' style='width: 18rem;'>
-                    <div style='height: 300px; padding: 15px;'>
+                    <a {href} style='height: 300px; padding: 15px;'>
                         <img style='max-height:290px; imagesize:contain;' class='card-img-top' src='" . $resultArray[$i]['afbeelding'] . "' alt='Card image cap'>
-                    </div>
+                    </a>
                     <div class='card-body'>
                         <div style='height: 75px'>
                            <h5 class='card-title'>" . $resultArray[$i]['naam'] . "</h5>
@@ -107,6 +109,15 @@ class ContentLogic {
                 </div>
             </div>";
 
+            if ($href == 1) {
+                $contentBoxes = str_Replace("{href}", "href='index.php?view=specific&id={id}'", $contentBoxes);
+            } else {
+                $contentBoxes = str_Replace("{href}", "", $contentBoxes);
+            }
+
+            $contentBoxes = str_Replace("{id}", $resultArray[$i]['id'], $contentBoxes);
+
+        }
         return $contentBoxes;
     }
 
