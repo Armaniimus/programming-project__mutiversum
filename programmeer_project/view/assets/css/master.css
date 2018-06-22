@@ -55,24 +55,39 @@
     margin-top: 50px;
 }
 
-.winkelwagen-knop {
-    width: 150px;
+.winkelwagen-knop,
+.uitlog-knop,
+.inlog-knop {
     padding: 5px;
     border-radius: 3px;
 
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    text-shadow: ;
 
     cursor: pointer;
 }
 
-.winkelwagen-knop:hover {
+.winkelwagen-knop:hover,
+.uitlog-knop:hover,
+.inlog-knop:hover {
     background-color: #0069d9;
     border-color: #0069d9;
     color: white;
     text-decoration: none;
+}
+
+.winkelwagen-knop,
+.inlog-knop {
+    width: 150px;
+}
+
+.uitlog-knop {
+    text-align: center;
+    margin-left:5px;
+    width: 75px;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
 }
 
 .admin-panel--buttonwrap {
@@ -91,7 +106,6 @@
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
-    text-shadow: ;
 
     cursor: pointer;
 }
