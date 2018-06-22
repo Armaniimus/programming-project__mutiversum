@@ -35,11 +35,5 @@
         </div>
         <div class="float-l col-xs-0    col-s-1     col-l-3"><br></div>
     </main>
-
-    <?php
-    // echo "<pre>";
-    var_dump($resultArray);
-    // echo "</pre>";
-    ?>
 </body>
 </html>
