@@ -12,7 +12,7 @@
                 <h3 class="specific--naam"><?php echo $resultArray["naam"] ?></h3>
                 <div class"row">
                     <div class="specific--img--wrap float-l col-xs-6">
-                        <img class="specific--img" src="<?php echo $resultArray["afbeelding"]?>" alt="">
+                        <img width="100%" class="specific--img" src="<?php echo $resultArray["afbeelding"]?>" alt="">
                     </div>
 
                     <div class="specific--content float-l col-xs-6">
