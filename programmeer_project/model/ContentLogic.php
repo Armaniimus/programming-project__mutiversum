@@ -112,7 +112,7 @@ class ContentLogic {
             $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'style='background-color: #1abc9c; border-color: #1abc9c;'>Bekijk product</a>
             <br>
             <br>
-            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop' style='background-color: #1abc9c; border-color: #1abc9c;'>Toevoegen</a>";
+            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop pr-2 pl-2' style='background-color: #F1C40F; border-color: #F1C40F;'>Toevoegen aan winkelwagen</a>";
         }
 
         $contentBoxes = "";
