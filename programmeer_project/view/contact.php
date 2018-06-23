@@ -16,7 +16,7 @@
 
                     <h5>Zakelijk verkeer</h5>
                     <p>
-                        Voor zakelijke verkeer kunt u terecht bij JackJones@Multiversum.nl of 06-85549877
+                        Voor zakelijke verkeer kunt u terecht bij jackjones@multiversum.nl of 06-85549877
                     </p>
 
                     <h5>Vragen, klachten</h5>
