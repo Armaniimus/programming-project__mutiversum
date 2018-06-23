@@ -14,8 +14,6 @@
     <!-- Google font Quicksand -->
     <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
-    <!-- style.css -->
-    <link rel="stylesheet" href="/assets/css/style.css" >
 
   </head>
 
