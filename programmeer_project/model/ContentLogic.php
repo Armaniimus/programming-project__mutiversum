@@ -91,7 +91,7 @@ class ContentLogic {
 
         if ($buttons == NULL) {
             $href = 1;
-            $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'>Bekijk product</a>
+            $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'style='background-color: #1abc9c; border-color: #1abc9c;'>Bekijk product</a>
             <br>
             <br>
             <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop'>Toevoegen</a>";
