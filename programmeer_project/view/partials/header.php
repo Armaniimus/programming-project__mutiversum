@@ -34,10 +34,10 @@
         <a class="nav-link text-dark" href="index.php">Home</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="producten.php">Producten</a>
+        <a class="nav-link text-dark" href="index.php?view=products">Producten</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-dark" href="contact.php">Contact</a>
+        <a class="nav-link text-dark" href="index.php?view=contact">Contact</a>
       </li>
     </ul>
     
