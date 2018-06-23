@@ -77,7 +77,6 @@ class ContentLogic {
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
-
         if ($option == "admin") {
             return $this->FormatAdminProducts($priceConvertedArray);
         } else {
@@ -153,7 +152,7 @@ class ContentLogic {
                 </form>
 
                 <form style='padding-left: 10px;' class='float-l' action='index.php?view=admin_delete&id={id}' method='post'>
-                    <input class='btn btn-danger' type='submit' name='multiversum' value='Delete Product'/>
+                    <input class='delete-knop' type='submit' name='multiversum' value='Delete Product'/>
                     <input type='hidden' name='search' value='$previousSearch'/>
                 </form>
             </div>
