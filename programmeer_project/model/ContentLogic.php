@@ -67,8 +67,12 @@ class ContentLogic {
             $search = '';
         }
 
-        $where = $this->DataHandler->SetSearchWhere($search, "vr_bril");
+        $columnNames = $this->DataHandler->GetColumnNames("vr_bril");
+        array_pop($columnNames);
+
+        $where = $this->DataHandler->SetSearchWhere($search, NULL, $columnNames);
         $sql = "SELECT id, naam, prijs, afbeelding, beschrijving FROM vr_bril $where";
+
 
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
