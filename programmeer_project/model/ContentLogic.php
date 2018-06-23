@@ -140,7 +140,7 @@ class ContentLogic {
 
         $buttons = "<div>
             <form action='index.php?view=admin_update&id={id}' method='post'>
-                <input class='btn btn-succes' type='submit' name='multiversum' value='Wijzig Product informatie'/>
+                <input class='wijzigproduct-knop' type='submit' name='multiversum' value='Wijzig Product informatie'/>
                 <input type='hidden' name='search' value='$previousSearch'/>
             </form>
         </div>
@@ -148,7 +148,7 @@ class ContentLogic {
         <div style='padding-left: 15px;'>
             <div class='row'>
                 <form action='index.php?view=admin_updatefoto&id={id}' method='post'>
-                    <input class='btn btn-primary' type='submit' name='multiversum' value='Wijzig Foto'/>
+                    <input class='wijzigfoto-knop' type='submit' name='multiversum' value='Wijzig Foto'/>
                     <input type='hidden' name='search' value='$previousSearch'/>
                 </form>
 
