@@ -94,7 +94,7 @@ class ContentLogic {
             $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'>Bekijk product</a>
             <br>
             <br>
-            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop'>+ in winkelwagen</a>";
+            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop'>Toevoegen</a>";
         }
 
         $contentBoxes = "";
@@ -136,7 +136,7 @@ class ContentLogic {
 
         $buttons = "<div>
             <form action='index.php?view=admin_update&id={id}' method='post'>
-                <input class='btn btn-primary' type='submit' name='multiversum' value='Wijzig Product informatie'/>
+                <input class='btn btn-succes m-3' type='submit' name='multiversum' value='Wijzig Product informatie'/>
                 <input type='hidden' name='search' value='$previousSearch'/>
             </form>
         </div>
