@@ -5,8 +5,8 @@ require_once "SessionLogic.php";
 require_once "traits\ValidatePHP_ID.php";
 require_once "PhpUtilities-v2.php";
 
-require_once "DataHandler-v3.php";
-require_once "DataValidator-v3.1.php";
+require_once "DataHandler-v3.1.php";
+require_once "DataValidator-v3.php";
 
 require_once "HtmlElements-v1.php";
 
