@@ -52,6 +52,10 @@ class EntryController {
                 $this->controller_overview();
                 break;
 
+            case 'winkelwagen':
+                $this->controller_Winkelwagen();
+                break;
+
             case 'search':
                 $this->controller_search();
                 break;
@@ -183,7 +187,11 @@ class EntryController {
         $this->EntryModel->GetAddToCart();
     }
 
-
+    public function Controller_Winkelwagen() {
+        $message = "<p class='winkelwagen--centerblok'>U heeft geen producten in uw winkelwagen</p>
+        ";
+        include "view/winkelwagen.php";
+    }
 }
 
 ?>

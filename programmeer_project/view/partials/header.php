@@ -21,7 +21,7 @@
                 </li>
             </ul>
 
-            <button class="btn btn-sm btn-outline-secondary mr-3" type="button">Winkelwagen</button>
+            <a href="index.php?view=winkelwagen" class="btn btn-sm btn-outline-secondary mr-3">Winkelwagen</a>
 
             <?php
                 if (!isset($previousSearch)) {
