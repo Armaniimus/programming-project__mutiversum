@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="specific--beschrijving">
-                    Beschrijving:<br>
+                    <h6>Beschrijving:</h6>
                     <?php echo $resultArray["beschrijving"] ?>
                     <br><br><br><br><br><br><br><br>
                 </div>
