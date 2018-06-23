@@ -95,10 +95,10 @@ class ContentLogic {
 
         if ($buttons == NULL) {
             $href = 1;
-            $buttons = "<a href='index.php?view=specific&id={id}' class='bekijkproduct-knop'>Bekijk product</a>
+            $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'style='background-color: #1abc9c; border-color: #1abc9c;'>Bekijk product</a>
             <br>
             <br>
-            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop'>Toevoegen aan winkelwagen</a>";
+            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop' style='background-color: #1abc9c; border-color: #1abc9c;'>Toevoegen</a>";
         }
 
         $contentBoxes = "";
@@ -140,7 +140,7 @@ class ContentLogic {
 
         $buttons = "<div>
             <form action='index.php?view=admin_update&id={id}' method='post'>
-                <input class='wijzigproduct-knop' type='submit' name='multiversum' value='Wijzig Product informatie'/>
+                <input class='btn btn-succes' type='submit' name='multiversum' value='Wijzig Product informatie'/>
                 <input type='hidden' name='search' value='$previousSearch'/>
             </form>
         </div>
@@ -148,7 +148,7 @@ class ContentLogic {
         <div style='padding-left: 15px;'>
             <div class='row'>
                 <form action='index.php?view=admin_updatefoto&id={id}' method='post'>
-                    <input class='wijzigfoto-knop' type='submit' name='multiversum' value='Wijzig Foto'/>
+                    <input class='btn btn-primary' type='submit' name='multiversum' value='Wijzig Foto'/>
                     <input type='hidden' name='search' value='$previousSearch'/>
                 </form>
 
