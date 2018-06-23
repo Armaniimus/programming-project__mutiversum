@@ -160,9 +160,13 @@ class EntryController {
     }
 
     public function controller_admin() {
-        $admin_input = $this->EntryModel->GetAdminLogin();
-        if ($admin_input == 1) {
-            $_SESSION['user'] = "admin";
+        $array = $this->EntryModel->GetAdminLogin();
+
+        $loggedIn = $array[0];
+        $admin_input = $array[1];
+        $message = $array[2];
+
+        if ($loggedIn == 1) {
             include "view/admin_panel.php";
 
         } else {

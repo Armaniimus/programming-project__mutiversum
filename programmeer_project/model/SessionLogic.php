@@ -5,49 +5,70 @@ class SessionLogic {
     public function __destruct() {}
 
     public function AdminLogin() {
-        $admin = "admin";
-        $pass = "wachtwoord";
+        $AdminSesionName = "admin";
+
         $message = NULL;
+        $loggedIn = NULL;
+        $admin_input = NULL;
 
-        $check1_1 = 0;
-        $check1_2 = 0;
-        $check2_1 = 0;
-        $check2_2 = 0;
-        $check3 = 0;
+        // check if Admin is allready logged in
+        if (isset($_SESSION['user']) && $_SESSION['user'] == $AdminSesionName) {
+            $loggedIn = 1;
 
-        if (isset($_SESSION['user']) && $_SESSION['user'] == $admin) {
-            $message = 1;
-        } else if (isset($_POST['username'])) {
-            $admin_input = $_POST['username'];
-            $check1_1 = 1;
-
-            if ($_POST['username'] == $admin) {
-                $check1_2 = 1;
-            }
-
+        // Checks if login info is good
         } else {
-            $admin_input = '';
-        }
+            // boolean checks
+            $UserConf = 0;
+            $PassConf = 0;
 
-        if (isset($_POST['password'])) {
-            $check2_1 = 1;
-            if ($_POST['password'] == $pass) {
-                $check2_2 = 1;
+
+            $adminHash = '$argon2i$v=19$m=1024,t=2,p=2$VkZFWnhaMEk2SDlRcmgyMg$A1OoUq05TSuSsaZDnohAlF+2ZG9A9dYVAhVHl+Lzjjw';
+            $passHash = '$argon2i$v=19$m=1024,t=2,p=2$eEtsTU9RLlZDbVozMTFhbQ$PZ0fsLrf4m3w11yMyHRCKT8u859GwrdEJe9CuG9xPfc';
+
+            $UserTry = "";
+            $PassTry = "";
+
+            $username = NULL;
+            $password = NULL;
+
+            if (isset($_POST['username'])) {
+                $username = $_POST['username'];
+                $UserTry = password_hash($username, 2);
+
+                if (isset($_POST['password'])) {
+                    $password = $_POST['password'];
+                    $PassTry = password_hash($password, 2);
             }
         }
 
-        // check if form == filled
-        if ($check1_1 && $check2_1) {
-            // check if login is unsuccesfull
-            if ($check1_2 == 0 || $check2_2 == 0) {
-                $message = "gebruikersnaam of wachtwoord is foutief";
+            // check for Username
+            if ($username != NULL) {
+                if (password_verify($username, $adminHash)) {
+                    $UserConf = 1;
+                } else {
+                    $admin_input = $username;
+                }
+            }
 
-            // check if login is succesfull
-            } else if ($check1_2 && $check2_2) {
-                $message = 1;
+            // check for password
+            if ($password != NULL) {
+                if (password_verify($password, $passHash)) {
+                    $PassConf = 1;
+                }
+            }
+
+            // check if all login information == correct
+            if ($UserConf && $PassConf) {
+                $loggedIn = 1;
+                $_SESSION["user"] = $AdminSesionName;
+            } else {
+                if ($username != NULL || $password != NULL) {
+                    $message = "gebruikersnaam of wachtwoord is foutief";
+                }
             }
         }
-        return $message;
+
+        return [$loggedIn, $admin_input ,$message];
     }
 
     public function SessionSupport() {
