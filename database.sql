@@ -85,7 +85,7 @@ SET beschrijving = "Dell-systemen vormen de basis van Virtual Reality, ze zorgen
 WHERE id = 3;
 
 UPDATE VR_bril
-SET beschrijving = "Met de HTC Vive Business Edition maak je plannen, ontwerpen en concepten tastbaar via Virtual Reality. Of je nou een klant door zijn toekomstige huiskamer laat 'lopen', een architecturale bouwtekening tot leven laat komen of een patiënt via VR therapie behandelt; de Business edition bieden je het platform om dit waar te maken. Met deze editie van de HTC Vive maak je ook gebruik van de HTC Vive zakelijke garantie, waarbij HTC defecte modellen zo snel mogelijk omwisselt voor een vervangend model. Inbegrepen bij de zakelijke editie zijn de kabel extension kit met in totaal 10 meter aan kabels, de deluxe audio headstrap en 4 gezichtskussens. Hierdoor beschik je precies over wat je nodig hebt voor intensief professioneel gebruik van de Vive."
+SET beschrijving = "Met de HTC Vive Business Edition maak je plannen, ontwerpen en concepten tastbaar via Virtual Reality. Of je nou een klant door zijn toekomstige huiskamer laat 'lopen', een architecturale bouwtekening tot leven laat komen of een patient via VR therapie behandelt; de Business edition bieden je het platform om dit waar te maken. Met deze editie van de HTC Vive maak je ook gebruik van de HTC Vive zakelijke garantie, waarbij HTC defecte modellen zo snel mogelijk omwisselt voor een vervangend model. Inbegrepen bij de zakelijke editie zijn de kabel extension kit met in totaal 10 meter aan kabels, de deluxe audio headstrap en 4 gezichtskussens. Hierdoor beschik je precies over wat je nodig hebt voor intensief professioneel gebruik van de Vive."
 WHERE id = 4;
 
 UPDATE VR_bril
