@@ -108,13 +108,33 @@ class SessionLogic {
 
 
             if (isset($_SESSION['products'][$id])) {
-                $_SESSION['products'][$id]++;
+                $_SESSION['products']["$id"]++;
             } else {
-                $_SESSION['products'][$id] = 1;
+                $_SESSION['products']["$id"] = 1;
             }
 
             var_dump($_SESSION);
         }
+    }
+
+    public function WinkelwagenSession() {
+        // if isset products
+        if (isset($_SESSION['products']) ) {
+            $array = [];
+            foreach($_SESSION['products'] as $ProductID => $Amount) {
+                array_push($array, ["id" => $ProductID, "aantal" => $Amount]);
+            }
+
+            // echo "<pre>";
+            // print_r($array);
+            // echo "</pre>";
+
+            // $table = $this->GenerateWinkelTable($array)
+
+            return $array;
+        }
+
+        return 0;
     }
 }
 ?>

@@ -84,6 +84,21 @@ class ContentLogic {
         }
     }
 
+    public function WinkelwagenContent($array) {
+        $sql = "SELECT naam, prijs, afbeelding FROM vr_bril WHERE id = ?";
+
+        for ($i=0; $i < count($array) ; $i++) {
+            $paramArray = [ $array[$i]["id"] ];
+
+            $returnArray[$i] = $this->DataHandler->ReadSingleData($sql, $paramArray);
+            $returnArray[$i]["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray[$i]["prijs"]);
+        }
+
+        echo "<pre>";
+        var_dump($returnArray);
+        echo "</pre>";
+    }
+
     public function FormatProducts($resultArray, $buttons = NULL) {
         $href = 0;
 

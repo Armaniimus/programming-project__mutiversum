@@ -188,6 +188,7 @@ class EntryController {
     }
 
     public function Controller_Winkelwagen() {
+        $message = $this->EntryModel->GetWinkelwagen();
         $message = "<p class='winkelwagen--centerblok'>U heeft geen producten in uw winkelwagen</p>
         ";
         include "view/winkelwagen.php";

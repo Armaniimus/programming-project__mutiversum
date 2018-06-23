@@ -16,7 +16,6 @@ class EntryModel {
     private $SessionLogic;
     private $HtmlElements;
 
-
     public function __construct($dbName, $username, $pass, $serverAdress, $dbType) {
         $this->ContentLogic     = new ContentLogic      ($dbName, $username, $pass, $serverAdress, $dbType);
         $this->SessionLogic     = new SessionLogic      ();
@@ -49,6 +48,7 @@ class EntryModel {
         return $this->ContentLogic->GetSearchData($option);
     }
 
+    // session logic functions
     public function GetAdminLogin() {
         return $this->SessionLogic->AdminLogin();
     }
@@ -63,5 +63,29 @@ class EntryModel {
 
     public function GetAddToCart() {
         return $this->SessionLogic->AddToCart();
+    }
+
+    public function GetWinkelwagen() {
+        // return
+        $SessionArray = $this->SessionLogic->WinkelwagenSession();
+
+        if ($SessionArray) {
+            $SessionArray = $this->ContentLogic->WinkelwagenContent($SessionArray);
+        }
+    }
+
+    public function GenerateWinkelTable($array) {
+        $tableHead = "<thead>
+            <tr>
+                <th>
+                    Product
+                </th>
+                <th>
+                    Prijs
+                </th>
+            </tr>
+        </thead>>";
+
+        $table = "<table>" . $tableHead . $tableBody . "</table>";
     }
 }
