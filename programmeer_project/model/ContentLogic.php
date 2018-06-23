@@ -83,13 +83,18 @@ class ContentLogic {
 
     public function FormatProducts($resultArray, $buttons = NULL) {
         $href = 0;
+
+        if (isset($_GET["view"])) {
+            $view = $_GET["view"];
+        } else
+        $view = 'home';
+
         if ($buttons == NULL) {
             $href = 1;
             $buttons = "<a href='index.php?view=specific&id={id}' class='btn btn-primary'>Bekijk product</a>
             <br>
             <br>
-            <div class='winkelwagen-knop'>+ In winkelwagen</div>
-            ";
+            <a href='index.php?view=$view&op=addToCart&id={id}' class='winkelwagen-knop'>+ in winkelwagen</a>";
         }
 
         $contentBoxes = "";

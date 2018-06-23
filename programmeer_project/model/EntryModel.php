@@ -60,4 +60,8 @@ class EntryModel {
     public function GetLogout() {
         return $this->SessionLogic->Logout();
     }
+
+    public function GetAddToCart() {
+        return $this->SessionLogic->AddToCart();
+    }
 }

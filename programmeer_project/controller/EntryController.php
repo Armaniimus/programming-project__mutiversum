@@ -22,6 +22,15 @@ class EntryController {
             $view = "";
         }
 
+        if (isset($_GET["op"])) {
+            $op = $_GET["op"];
+
+            if ($op == "addToCart") {
+                $this->Controller_AddToCart();
+            }
+        }
+
+
         switch ($view) {
             case '404':
                 $this->controller_404();
@@ -165,6 +174,12 @@ class EntryController {
         $this->EntryModel->GetLogout();
         $this->controller_home();
     }
+
+    public function Controller_AddToCart() {
+        $this->EntryModel->GetAddToCart();
+    }
+
+
 }
 
 ?>

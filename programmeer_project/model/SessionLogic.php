@@ -80,5 +80,20 @@ class SessionLogic {
         session_destroy();
         session_start();
     }
+
+    public function AddToCart() {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+
+            if (isset($_SESSION['products'][$id])) {
+                $_SESSION['products'][$id]++;
+            } else {
+                $_SESSION['products'][$id] = 1;
+            }
+
+            var_dump($_SESSION);
+        }
+    }
 }
 ?>

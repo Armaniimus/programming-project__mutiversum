@@ -22,7 +22,7 @@
                         <div class="specific--merk">Merk: <?php echo $resultArray["merk"] ?></div>
                         <div class="specific--model">Model: <?php echo $resultArray["model"] ?></div>
                         <br>
-                        <div class="winkelwagen-knop">+ In winkelwagen</div>
+                        <a href='index.php?view=specific&op=addToCart&id=<?php echo $_GET["id"] ?>' class='winkelwagen-knop'>+ in winkelwagen</a>
                     </div>
                 </div>
 
