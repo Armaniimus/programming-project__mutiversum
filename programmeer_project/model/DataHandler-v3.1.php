@@ -396,9 +396,10 @@
         public function SetSearchWhere($whereData, $tablename = NULL, $columnNames = NULL, $option = 1) {
 
             // get columnNames based on $tablename or $columnNames
-            if ($columnNames === NULL || !empty($tablename) ) {
+            if ($columnNames == NULL && !empty($tablename) ) {
                 $columnNames = $this->GetColumnNames($tablename);
-            } else {
+
+            } else if ($tablename == NULL && $columnNames == NULL) {
                 throw new Exception("No Useable parameters given");
             }
 
