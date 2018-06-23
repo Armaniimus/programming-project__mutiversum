@@ -9,14 +9,9 @@
             <div class="float-l col-xs-8 login--center">
                 <h3>Contact</h3>
                 <div class="contact--centerblok">
-                    <p>
-                        Bedankt voor het bezoeken van onze website.
-                        Hieronder volgt informatie over retouren, zakelijk verkeer, klachten, vragen, of overige zaken.
-                    </p>
-
                     <h5>Retouren</h5>
                     <p>
-                        Wilt u Retourneren Mail dan aub naar Hanneke@Multiversum.nl<br><br>
+                        Wilt u Retourneren Mail dan aub naar hanneke@multiversum.nl<br><br>
                     </p>
 
                     <h5>Zakelijk verkeer</h5>
@@ -26,13 +21,13 @@
 
                     <h5>Vragen, klachten</h5>
                     <p>
-                        Mocht u vragen hebben of een klacht dan kunt u ons mailen op Hanneke@Multiversum.nl
+                        Mocht u vragen hebben of een klacht dan kunt u ons mailen op hanneke@multiversum.nl
                         of u kunt bellen naar 06-85549876.
                     </p>
 
                     <h5>Overig</h5>
                     <p>
-                         Voor overige zaken kunt u ons mailen op Hanneke@Multiversum.nl
+                         Voor overige zaken kunt u ons mailen op hanneke@multiversum.nl
                          of u kunt bellen naar 06-85549876.
                     </p>
                 </div>
