@@ -136,7 +136,7 @@ class ContentLogic {
 
         $buttons = "<div>
             <form action='index.php?view=admin_update&id={id}' method='post'>
-                <input class='btn btn-succes m-3' type='submit' name='multiversum' value='Wijzig Product informatie'/>
+                <input class='btn btn-succes' type='submit' name='multiversum' value='Wijzig Product informatie'/>
                 <input type='hidden' name='search' value='$previousSearch'/>
             </form>
         </div>
