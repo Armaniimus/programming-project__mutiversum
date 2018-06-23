@@ -11,6 +11,12 @@
     <!-- font awsome css -->
     <link rel="stylesheet" href="css/fontAwesome-all.min.css" >
 
+    <!-- Google font Quicksand -->
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+
+    <!-- style.css -->
+    <link rel="stylesheet" href="/assets/css/style.css" >
+
   </head>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
