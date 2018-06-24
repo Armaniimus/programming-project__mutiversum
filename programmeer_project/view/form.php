@@ -6,23 +6,28 @@
     </div>
     <div class="form-group col-md-6">
       Naam:
-      <input type="text" class="form-control" id="inputNaam" placeholder="Password">
+      <input type="text" class="form-control" id="inputNaam">
     </div>
   </div>
   <div class="form-group">
     Model:
     <input type="text" class="form-control" id="inputModel">
   </div>
-  <div class="form-group">
-    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-  </div>
+  <div class="form-group col-md-4">
+      Platform:
+      <select id="inputPlatform" class="form-control">
+        <option selected>Pc</option>
+        <option>Smartphone</option>
+        <option>Playstation4</option>
+      </select>
+    </div>
   <div class="form-row">
     <div class="form-group col-md-6">
       <input type="text" class="form-control" id="inputCity">
     </div>
     <div class="form-group col-md-4">
       3d/2d
-      <select id="inputState" class="form-control">
+      <select id="input3d" class="form-control">
         <option selected>3d</option>
         <option>2d</option>
       </select>
