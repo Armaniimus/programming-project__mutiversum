@@ -23,8 +23,10 @@
     </div>
   <div class="form-row">
     <div class="form-group col-md-6">
-      <input type="text" class="form-control" id="inputCity">
+      Merk:
+      <input type="text" class="form-control" id="inputMerk">
     </div>
+  </div>
     <div class="form-group col-md-4">
       3d/2d
       <select id="input3d" class="form-control">
@@ -33,17 +35,21 @@
       </select>
     </div>
     <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
+      Resolutie:
+      <input type="text" class="form-control" id="inputResolutie">
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+      Prijs:
+      <input type="text" class="form-control" id="inputPrijs">
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      Beschrijving:
+      <input type="text" class="form-control" id="inputBeschrijving">
     </div>
   </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
+
+  <button type="submit" class="btn btn-primary">Voeg product toe</button>
 </form>
