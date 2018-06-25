@@ -80,30 +80,40 @@ class EntryModel {
     }
 
 
-    public function GetCreate() {
+    public function GetCreateForm() {
         $columnNames = $this->ContentLogic->GetColumnNames();
         $dataTypes = $this->ContentLogic->GetDataTypes();
         $dataNullArray = $this->ContentLogic->GetDataNull();
 
-        array_shift($columnNames);
-        array_splice($columnNames,6,1);
-        array_shift($dataTypes);
-        array_splice($dataTypes,6,1);
-        array_shift($dataNullArray);
-        array_splice($dataNullArray,6,1);
-
         $dataVal = new DataValidator();
         $dataTypes = $dataVal->GetHtmlValidateData($dataTypes);
-
-        // var_dump($columnNames);
-        // var_dump($dataTypes);
-        // var_dump($dataNullArray);
 
         return $this->HtmlElements->GenerateForm("post", "index.php?op=create&view=admin_create", "createform", NULL, $columnNames, $dataTypes, $dataNullArray, $option = 1);
     }
 
-    public function EntryCreateNewProduct() {
+    public function CreateNewProduct() {
         return $this->ContentLogic->CreateNewProduct();
+    }
+
+    public function GetUpdateForm($id) {
+        $data = $this->ContentLogic->GetUpdateInfo($id);
+
+        $columnNames = $this->ContentLogic->GetColumnNames();
+        $dataTypes = $this->ContentLogic->GetDataTypes();
+        $dataNullArray = $this->ContentLogic->GetDataNull();
+
+        $dataVal = new DataValidator();
+        $dataTypes = $dataVal->GetHtmlValidateData($dataTypes);
+
+        return $this->HtmlElements->GenerateForm("post", "index.php?op=update&view=admin_update&id=$id", "updateform", $data, $columnNames, $dataTypes, $dataNullArray, $option = 0);
+    }
+
+    public function GetUpdate($id) {
+        $this->ContentLogic->Update($id);
+    }
+
+    public function GetDelete($id) {
+        return $this->ContentLogic->DeleteProduct($id);
     }
 
     private function GenerateWinkelTable($array) {

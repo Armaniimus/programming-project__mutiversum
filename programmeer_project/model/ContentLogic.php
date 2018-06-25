@@ -21,16 +21,31 @@ class ContentLogic {
         $this->DataValidator    =   new DataValidator     ($columnNames, $dataTypes, $dataNullArray);
     }
 
+    public function __destruct() {
+        $this->PhpUtilities = NULL;
+        $this->DataHandler = NULL;
+        $this->DataValidator = NULL;
+    }
+
     public function GetColumnNames() {
-        return $this->DataHandler->GetColumnNames("vr_bril");
+        $columnNames = $this->DataHandler->GetColumnNames("vr_bril");
+        array_shift($columnNames);
+        array_splice($columnNames,6,1);
+        return $columnNames;
     }
 
     public function GetDataTypes() {
-        return $this->DataHandler->GetTableTypes("vr_bril");
+        $dataTypes = $this->DataHandler->GetTableTypes("vr_bril");
+        array_shift($dataTypes);
+        array_splice($dataTypes,6,1);
+        return $dataTypes;
     }
 
     public function GetDataNull() {
-        return $this->DataHandler->GetTableNullValues("vr_bril");
+        $dataNullArray = $this->DataHandler->GetTableNullValues("vr_bril");
+        array_shift($dataNullArray);
+        array_splice($dataNullArray,6,1);
+        return $dataNullArray;
     }
 
     public function CreateNewProduct() {
@@ -40,8 +55,18 @@ class ContentLogic {
         return $this->DataHandler->CreateData($sql);
     }
 
-    public function __destruct() {
-        $this->DataHandler = NULL;
+    public function GetUpdateInfo($id) {
+        $sql = "SELECT naam, model, 3d_2d, resolutie, platform, merk, afbeelding, prijs, beschrijving FROM vr_bril WHERE id = ?";
+        return $this->DataHandler->ReadSingleData($sql, [$id]);
+    }
+
+    public function Update($id) {
+        $data = $_POST;
+        $this->DataHandler->UpdateData(NULL, 'vr_bril', $data, 'id', $id);
+    }
+
+    public function DeleteProduct($id) {
+        return $this->DataHandler->DeleteData(NULL, "vr_bril", "id", $id);
     }
 
     public function GetSpecificData($id) {

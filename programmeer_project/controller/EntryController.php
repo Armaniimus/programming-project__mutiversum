@@ -168,7 +168,7 @@ class EntryController {
         }
     }
 
-    public function Controller_admin() {
+    public function Controller_Admin() {
         $array = $this->EntryModel->GetAdminLogin();
 
         $loggedIn = $array[0];
@@ -186,7 +186,7 @@ class EntryController {
     /***
         crud controllers
     */
-    public function controller_adminCreate() {
+    public function Controller_AdminCreate() {
         if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
             $this->Controller_Home();
 
@@ -194,25 +194,48 @@ class EntryController {
 
             $form = '';
             if (isset($_POST["naam"]) && $_GET["op"] == 'create' ) {
-                $id = $this->EntryModel->EntryCreateNewProduct();
+                $id = $this->EntryModel->CreateNewProduct();
 
                 include "view/admin_panel.php";
-            }
 
-            else {
-                $form = $this->EntryModel->GetCreate();
+            } else {
+                $form = $this->EntryModel->GetCreateForm();
                 include "view/crudform.php";
             }
         }
     }
 
-    public function controller_adminDelete() {
+    public function Controller_AdminUpdate() {
+        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
+            $this->Controller_Home();
+
+        } else if (!isset($_GET["id"]) ) {
+            $this->Controller_Home();
+
+        } else {
+            $id = $_GET["id"];
+            $form = '';
+
+            if (isset($_POST["naam"]) && $_GET["op"] == 'update' ) {
+                $id = $this->EntryModel->GetUpdate($id);
+
+                include "view/admin_panel.php";
+
+            } else {
+                $form = $this->EntryModel->GetUpdateForm($id);
+                include "view/crudform.php";
+            }
+        }
+    }
+
+    public function Controller_AdminDelete() {
         if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
             $this->Controller_Home();
 
         } else {
-            $this->GetDelete() {
-                
+            $id = $_GET["id"];
+            if ($this->EntryModel->GetDelete($id) == 1) {
+                include "view/admin_panel.php";
             }
         }
 
