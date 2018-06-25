@@ -65,6 +65,10 @@ class EntryModel {
         return $this->SessionLogic->AddToCart();
     }
 
+    public function GetRemoveFromCart() {
+        return $this->SessionLogic->RemoveFromCart();
+    }
+
     public function GetWinkelwagen() {
         // return
         $SessionArray = $this->SessionLogic->WinkelwagenSession();

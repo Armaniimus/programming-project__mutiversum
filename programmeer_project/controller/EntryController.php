@@ -28,6 +28,9 @@ class EntryController {
             if ($op == "addToCart") {
                 $this->Controller_AddToCart();
             }
+            if ($op == "RemoveFromCart") {
+                $this->Controller_RemoveFromCart();
+            }
         }
 
 
@@ -185,6 +188,10 @@ class EntryController {
 
     public function Controller_AddToCart() {
         $this->EntryModel->GetAddToCart();
+    }
+
+    public function Controller_RemoveFromCart() {
+        $this->EntryModel->GetRemoveFromCart();
     }
 
     public function Controller_Winkelwagen() {

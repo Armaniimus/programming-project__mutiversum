@@ -112,8 +112,22 @@ class SessionLogic {
             } else {
                 $_SESSION['products']["$id"] = 1;
             }
+        }
+    }
 
-            var_dump($_SESSION);
+    public function RemoveFromCart() {
+        if (isset($_GET['id'])) {
+            $id = $_GET['id'];
+
+
+            if (isset($_SESSION['products'][$id])) {
+
+                if ($_SESSION['products'][$id] <= 1) {
+                    unset($_SESSION['products']["$id"]);
+                } else {
+                    $_SESSION['products']["$id"]--;
+                }
+            }
         }
     }
 
@@ -124,12 +138,6 @@ class SessionLogic {
             foreach($_SESSION['products'] as $ProductID => $Amount) {
                 array_push($array, ["id" => $ProductID, "aantal" => $Amount]);
             }
-
-            // echo "<pre>";
-            // print_r($array);
-            // echo "</pre>";
-
-            // $table = $this->GenerateWinkelTable($array)
 
             return $array;
         }
