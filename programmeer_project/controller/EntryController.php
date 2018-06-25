@@ -206,6 +206,16 @@ class EntryController {
         }
     }
 
+    public function controller_adminDelete() {
+        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
+            $this->Controller_Home();
+
+        } else {
+            $this->GetDelete() {
+                
+            }
+        }
+
     }
 
     /***
