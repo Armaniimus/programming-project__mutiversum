@@ -91,12 +91,12 @@ class ContentLogic {
             $paramArray = [ $array[$i]["id"] ];
 
             $returnArray[$i] = $this->DataHandler->ReadSingleData($sql, $paramArray);
+            $returnArray[$i]["id"] = $array[$i]["id"];
+            $returnArray[$i]["aantal"] = $array[$i]["aantal"];
             $returnArray[$i]["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray[$i]["prijs"]);
         }
 
-        echo "<pre>";
-        var_dump($returnArray);
-        echo "</pre>";
+        return $returnArray;
     }
 
     public function FormatProducts($resultArray, $buttons = NULL) {
