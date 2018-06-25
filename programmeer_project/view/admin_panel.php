@@ -10,11 +10,11 @@
             <div class="row">
                 <div class="admin-panel--buttonwrap float-l col-xs-12 col-m-6">
                     <div class="adminpanel--margin"></div>
-                    <a class="adminpanel--buttons" href="#">
+                    <a class="adminpanel--buttons" href="index.php?view=admin_create">
                         <div style="position:relative; top: 50%;">Creeër nieuw product</div>
                     </a><br>
                 </div>
-                
+
                 <div class="admin-panel--buttonwrap float-l col-xs-12 col-m-6">
                     <form class="" action="index.php?view=admin_search" method="post">
                         <input class="adminpanel--margin" style="border: 1px #333 solid;" type="text" name="search" value=""><br>

@@ -79,6 +79,12 @@ class EntryModel {
         }
     }
 
+
+    public function GetCreate() {
+
+        $this->HtmlElements->GenerateForm("post", "index.php?&view=admin_create", $formName, $DB_data, $DB_columnNames, $DB_dataTypesArray, $DB_requiredNullArray, $option = 0);
+    }
+
     private function GenerateWinkelTable($array) {
 
         $prijsTotaal = $array[0]["prijsTotaal"];
@@ -110,6 +116,9 @@ class EntryModel {
             $rows
 
             <tr>
+                <td colspan='4'> <br><br><br><br> </td>
+            </tr>
+            <tr>
                 <td>Verzendkosten</td>
                 <td>&euro;6,50</td>
                 <td colspan='2'></td>
@@ -123,7 +132,7 @@ class EntryModel {
 
 
         $table = "<table>" . $tableHead . $tableBody . "</table>
-        <button>Bestellen</button>";
+        <button class='winkelwagen--betaalknop' >Bestellen</button>";
 
         return $table;
     }

@@ -40,61 +40,59 @@ class EntryController {
                 break;
 
             case 'contact':
-                $this->controller_contact();
+                $this->Controller_Contact();
                 break;
 
             case 'home':
-                $this->controller_home();
+                $this->Controller_Home();
                 break;
 
             case 'specific':
-                $this->controller_specific();
+                $this->Controller_Specific();
                 break;
 
             case 'products':
-                $this->controller_overview();
+                $this->Controller_Overview();
                 break;
 
             case 'winkelwagen':
-                $this->controller_Winkelwagen();
+                $this->Controller_Winkelwagen();
                 break;
 
             case 'search':
-                $this->controller_search();
+                $this->Controller_Search();
                 break;
 
             case 'admin';
-                $this->controller_admin();
+                $this->Controller_Admin();
                 break;
 
             case 'admin_products';
-                $this->controller_adminProducts();
+                $this->Controller_AdminProducts();
                 break;
 
             case 'admin_search';
-                $this->controller_adminSearch();
+                $this->Controller_AdminSearch();
                 break;
 
             case 'admin_create';
-                $this->controller_adminCreate();
+                $this->Controller_AdminCreate();
                 break;
 
             case 'admin_update';
-                $this->controller_adminUpdate();
+                $this->Controller_adminUpdate();
                 break;
 
             case 'admin_delete';
-                $this->controller_adminDelete();
+                $this->Controller_AdminDelete();
                 break;
 
             case 'logout';
-                $this->controller_Logout();
+                $this->Controller_Logout();
                 break;
 
             default:
-                // $this->controller_overview();
-                // $this->controller_specific();
-                $this->controller_home();
+                $this->Controller_Home();
                 break;
         }
     }
@@ -103,17 +101,17 @@ class EntryController {
         // include "view/default.php";
     }
 
-    public function controller_home() {
+    public function Controller_Home() {
         $contentBoxes = $this->EntryModel->GetContentHome();
 
         include "view/home.php";
     }
 
-    public function controller_contact() {
+    public function Controller_Contact() {
         include "view/contact.php";
     }
 
-    public function controller_specific() {
+    public function Controller_Specific() {
         if (isset($_GET["id"])) {
             $id = $_GET["id"];
 
@@ -126,12 +124,12 @@ class EntryController {
         }
     }
 
-    public function controller_overview() {
+    public function Controller_Overview() {
         $contentBoxes = $this->EntryModel->GetContentOverViewData();
         include "view/home.php";
     }
 
-    public function controller_search() {
+    public function Controller_Search() {
         $contentBoxes = $this->EntryModel->GetContentSearchData();
 
         if (isset($_POST["search"])) {
@@ -141,18 +139,22 @@ class EntryController {
         include "view/home.php";
     }
 
-    public function controller_adminProducts() {
+
+    /***
+        admin controllers
+    */
+    public function Controller_AdminProducts() {
         if (!isset($_SESSION['user']) || $_SESSION['user'] !== "admin" ) {
-            $this->controller_home();
+            $this->Controller_Home();
         } else {
             $contentBoxes = $this->EntryModel->GetContentOverViewData("admin");
             include "view/admin_products.php";
         }
     }
 
-    public function controller_adminSearch() {
+    public function Controller_AdminSearch() {
         if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
-            $this->controller_home();
+            $this->Controller_Home();
         } else {
             $contentBoxes = $this->EntryModel->GetContentSearchData("admin");
 
@@ -166,7 +168,7 @@ class EntryController {
         }
     }
 
-    public function controller_admin() {
+    public function Controller_admin() {
         $array = $this->EntryModel->GetAdminLogin();
 
         $loggedIn = $array[0];
@@ -181,6 +183,21 @@ class EntryController {
         }
     }
 
+    public function CheckLogin() {
+
+    }
+
+    /***
+        crud controllers
+    */
+    public function controller_adminCreate() {
+        $form = $this->EntryModel->GetCreate();
+        include "view/crudfrom.php";
+    }
+
+    /***
+        session controllers
+    */
     public function controller_Logout() {
         $this->EntryModel->GetLogout();
         $this->controller_home();
