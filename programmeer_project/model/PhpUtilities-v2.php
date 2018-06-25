@@ -6,6 +6,10 @@ class PhpUtilities {
 
     }
 
+    public function toFixed($number, $decimals) {
+        return number_format($number, $decimals, ".", "");
+    }
+
     /***
     * $array expects an 2dimensional numeric array with assoc arrays in it
     * $key expects an string (is used as key for the inner assoc arrays)

@@ -80,6 +80,9 @@ class EntryModel {
     }
 
     private function GenerateWinkelTable($array) {
+
+        $prijsTotaal = $array[0]["prijsTotaal"];
+
         $tableHead = "<thead class='winkelwagen--thead'>
             <tr>
                 <th>Product</th>
@@ -105,10 +108,22 @@ class EntryModel {
 
         $tableBody = "<tbody class='winkelwagen--tbody'>
             $rows
+
+            <tr>
+                <td>Verzendkosten</td>
+                <td>&euro;6,50</td>
+                <td colspan='2'></td>
+            </tr>
+            <tr>
+                <td>Totaal bedrag inclusief btw</td>
+                <td>$prijsTotaal</td>
+                <td colspan='2'></td>
+            </tr>
         </tbody>";
 
 
-        $table = "<table>" . $tableHead . $tableBody . "</table>";
+        $table = "<table>" . $tableHead . $tableBody . "</table>
+        <button>Bestellen</button>";
 
         return $table;
     }

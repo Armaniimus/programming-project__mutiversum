@@ -87,14 +87,21 @@ class ContentLogic {
     public function WinkelwagenContent($array) {
         $sql = "SELECT naam, prijs, afbeelding FROM vr_bril WHERE id = ?";
 
+        $prijsTotaal = 6.50;
         for ($i=0; $i < count($array) ; $i++) {
             $paramArray = [ $array[$i]["id"] ];
 
             $returnArray[$i] = $this->DataHandler->ReadSingleData($sql, $paramArray);
             $returnArray[$i]["id"] = $array[$i]["id"];
             $returnArray[$i]["aantal"] = $array[$i]["aantal"];
-            $returnArray[$i]["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray[$i]["prijs"]);
+
+            $prijsTotaal += ($returnArray[$i]["prijs"] * $returnArray[$i]["aantal"]);
+            $returnArray[$i]["prijs"] = $this->PhpUtilities->toFixed($returnArray[$i]["prijs"], 2);//convert to a 2 decimal number
+            $returnArray[$i]["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray[$i]["prijs"]); //convert to dutch number representation
         }
+
+        $prijsTotaal = $this->PhpUtilities->toFixed($prijsTotaal, 2);
+        $returnArray[0]["prijsTotaal"] = $this->PhpUtilities->Convert_NormalToEuro($prijsTotaal);
 
         return $returnArray;
     }
