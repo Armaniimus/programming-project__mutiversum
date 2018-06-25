@@ -1,21 +1,25 @@
+.updateform-input,
+.updateform-label,
 .createform-input,
 .createform-label {
     display: block;
 }
 
+.updateform-label,
 .createform-label {
     margin-top: 15px;
     margin-bottom: 0px;
 }
 
+.updateform-input:valid,
 .createform-input:valid {
     background-color: #afa;
 }
 
+.updateform-input:invalid,
 .createform-input:invalid {
     background-color: #faa;
 }
-
 
 * {
     font-family: 'Quicksand', sans-serif;
