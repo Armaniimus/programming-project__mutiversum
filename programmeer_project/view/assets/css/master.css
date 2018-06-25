@@ -45,12 +45,22 @@
 }
 
 .winkelwagen--betaalknop {
+<<<<<<< HEAD
 
+=======
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #333;
+
+    text-align: center;
+>>>>>>> 25874f1ace3ef4fcea943836e3a821edf000f7e9
 }
 
 .winkelwagen--plusknop,
 .winkelwagen--minknop {
-    background-color: red;
+    background-color: #ff4757;
     padding: 1px 15px;
     width: 38px;
     margin-left: 4px;
