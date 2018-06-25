@@ -80,7 +80,7 @@ class EntryController {
                 break;
 
             case 'admin_update';
-                $this->Controller_adminUpdate();
+                $this->Controller_AdminUpdate();
                 break;
 
             case 'admin_delete';
@@ -183,16 +183,29 @@ class EntryController {
         }
     }
 
-    public function CheckLogin() {
-
-    }
-
     /***
         crud controllers
     */
     public function controller_adminCreate() {
-        $form = $this->EntryModel->GetCreate();
-        include "view/crudfrom.php";
+        if (!isset($_SESSION['user']) || $_SESSION['user'] != "admin" ) {
+            $this->Controller_Home();
+
+        } else {
+
+            $form = '';
+            if (isset($_POST["naam"]) && $_GET["op"] == 'create' ) {
+                $id = $this->EntryModel->EntryCreateNewProduct();
+
+                include "view/admin_panel.php";
+            }
+
+            else {
+                $form = $this->EntryModel->GetCreate();
+                include "view/crudform.php";
+            }
+        }
+    }
+
     }
 
     /***

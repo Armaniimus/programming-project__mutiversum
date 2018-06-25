@@ -1,3 +1,22 @@
+.createform-input,
+.createform-label {
+    display: block;
+}
+
+.createform-label {
+    margin-top: 15px;
+    margin-bottom: 0px;
+}
+
+.createform-input:valid {
+    background-color: #afa;
+}
+
+.createform-input:invalid {
+    background-color: #faa;
+}
+
+
 * {
     font-family: 'Quicksand', sans-serif;
 }
@@ -26,7 +45,7 @@
 }
 
 .winkelwagen--betaalknop {
-    
+
 }
 
 .winkelwagen--plusknop,

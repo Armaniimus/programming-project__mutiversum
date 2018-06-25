@@ -21,6 +21,25 @@ class ContentLogic {
         $this->DataValidator    =   new DataValidator     ($columnNames, $dataTypes, $dataNullArray);
     }
 
+    public function GetColumnNames() {
+        return $this->DataHandler->GetColumnNames("vr_bril");
+    }
+
+    public function GetDataTypes() {
+        return $this->DataHandler->GetTableTypes("vr_bril");
+    }
+
+    public function GetDataNull() {
+        return $this->DataHandler->GetTableNullValues("vr_bril");
+    }
+
+    public function CreateNewProduct() {
+        $columns = ['naam', 'model', '3d_2d', 'resolutie', 'platform', 'merk', 'prijs', 'beschrijving'];
+        $sql = $this->DataHandler->SetCreateQuery("vr_bril", $columns , $_POST);
+
+        return $this->DataHandler->CreateData($sql);
+    }
+
     public function __destruct() {
         $this->DataHandler = NULL;
     }
