@@ -1,3 +1,7 @@
+<?php
+include "partials/meta.php";
+?>
+
 <form>
   <div class="form-row">
     <div class="form-group col-md-6">
