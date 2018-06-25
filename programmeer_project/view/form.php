@@ -50,6 +50,10 @@
       <input type="text" class="form-control" id="inputBeschrijving">
     </div>
   </div>
+  <div class="custom-file">
+    <input type="file" class="custom-file-input" id="customFile">
+    <label class="custom-file-label" for="customFile">Kies afbeelding</label>
+  </div>
 
   <button type="submit" class="btn btn-primary">Voeg product toe</button>
 </form>
