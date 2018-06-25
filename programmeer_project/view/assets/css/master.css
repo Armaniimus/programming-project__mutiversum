@@ -1,3 +1,7 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+}
+
 .winkelwagen--thead {
     background-color: #555;
     color:#fff;
@@ -19,6 +23,10 @@
 .winkelwagen--img {
     width:100px;
     margin-top:15px;
+}
+
+.winkelwagen--betaalknop {
+    
 }
 
 .winkelwagen--plusknop,
