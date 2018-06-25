@@ -1,5 +1,6 @@
 <?php
     require_once "traits\ValidatePHP_ID.php";
+    require_once "PhpUtilities-v2.php";
     class DataHandler {
         private $conn;
         public $error;
@@ -7,10 +8,14 @@
         public $dbName;
         private $tableData;
 
+        private $PhpUtilities;
+
         public function __construct($dbName, $username, $pass, $serverAdress, $dbType) {
             $this->tableData = [];
             $this->dbName = $dbName;
             $this->conn = new PDO("$dbType:host=$serverAdress;dbname=$dbName", $username, $pass);
+
+            $this->PhpUtilities = new PhpUtilities;
 
             // set the PDO error mode to exception
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -88,11 +93,15 @@
             }
         }
 
-        public function SetUpdateQuery($tablename, $AssocArray, $idName = NULL, $idValue = NULL) {
+        public function SetUpdateQuery($tablename, $AssocArray, $idName = NULL, $idValue = NULL, $inputColumnNames = NULL) {
 
             # collumnNames collection + idName and Value collection;
                 // get the $columnNames;
-                $columnNames = $this->GetColumnNames($tablename);
+                if ($inputColumnNames == NULL) {
+                    $columnNames = $this->GetColumnNames($tablename);
+                } else {
+                    $columnNames = $inputColumnNames;
+                }
 
                 // set idName if not supplied
                 if ($idName == NULL) {
@@ -107,7 +116,7 @@
                 }
 
                 // select the columnNames
-                $columnNames = $this->SelectWithCodeFromArray($columnNames, "02");
+                $columnNames = $this->PhpUtilities->SelectWithCodeFromArray($columnNames, "02");
             # end of collumnNames collection + idName and Value collection
 
             // validate the ID and throw an error if appropiate
@@ -129,14 +138,14 @@
         // string variables -> $updateQuery $tableName $idName
         // int variables -> $idValue
         // array variables -> $AssocArray
-        public function UpdateData($updateQuery = NULL, $tableName = NULL, $AssocArray = NULL, $idValue = NULL, $idName = NULL) {
+        public function UpdateData($updateQuery = NULL, $tableName = NULL, $AssocArray = NULL, $idName = NULL, $idValue = NULL) {
 
             if ($updateQuery == NULL) {
                 if ($idValue == NULL || $idName == NULL) {
                     throw new \Exception("Missing data to process the update request --[IdValue] --> $idValue  --[idName] -->$idName");
                 }
 
-                $updateQuery = $this->SetUpdateQuery($tablename, $AssocArray, $idValue, $idName);
+                $updateQuery = $this->SetUpdateQuery($tableName, $AssocArray, $idName, $idValue);
             }
 
             // run updateQuery
@@ -169,7 +178,7 @@
                 $deleteQuery = $this->SetDeleteQuery($tablename, $idName, $idValue);
             }
 
-            $this->RunSqlQuery($deleteQuery);
+            return $this->RunSqlQuery($deleteQuery);
         }
 
         ##################
@@ -273,9 +282,11 @@
 
             // Generate Set part for the update
             if ($option == 0 || $option == 'update') {
-                $recordData = $colNames_nrArr[0] . " = " . $AssocArray[$colNames_nrArr[0]];
+                $recordData = $colNames_nrArr[0] . " = '" . $AssocArray[$colNames_nrArr[0]] . "'";
                 for ($i=1; $i < count($colNames_nrArr); $i++) {
-                    $recordData .= ", " . $colNames_nrArr[$i] . " = '" . $AssocArray[$colNames_nrArr[$i]] . "'";
+                    if (isset($AssocArray[$colNames_nrArr[$i]])) {
+                        $recordData .= ", " . $colNames_nrArr[$i] . " = '" . $AssocArray[$colNames_nrArr[$i]] . "'";
+                    }
                 }
             }
 

@@ -64,7 +64,7 @@
 
         private function ValidateHTMLVarchar($data) {
             $data = $this->PrepValidateVarchar($data);
-            $data = "type='text' maxlength='$data' pattern='[^\s$][A-Za-z0-9!@#$%\^&*\s.,:;]*'";
+            $data = "type='text' maxlength='$data' pattern='[^\s$][A-Za-z0-9!@#$%\^&*\s.,:;+-]*'";
 
             return $data;
         }
