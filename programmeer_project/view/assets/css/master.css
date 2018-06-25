@@ -26,7 +26,13 @@
 }
 
 .winkelwagen--betaalknop {
-    
+    background-color: #1abc9c;
+    border-color: #1abc9c;
+    border-radius: 5px;
+    margin-top: 5px;
+    color: #333;
+
+    text-align: center;
 }
 
 .winkelwagen--plusknop,
