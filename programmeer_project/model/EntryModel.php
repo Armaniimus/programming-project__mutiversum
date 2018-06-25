@@ -75,21 +75,41 @@ class EntryModel {
 
         if ($SessionArray) {
             $SessionArray = $this->ContentLogic->WinkelwagenContent($SessionArray);
+            return $this->GenerateWinkelTable($SessionArray);
         }
     }
 
-    public function GenerateWinkelTable($array) {
-        $tableHead = "<thead>
+    private function GenerateWinkelTable($array) {
+        $tableHead = "<thead class='winkelwagen--thead'>
             <tr>
-                <th>
-                    Product
-                </th>
-                <th>
-                    Prijs
-                </th>
+                <th>Product</th>
+                <th>Prijs</th>
+                <th colspan='2'>Aantal</th>
             </tr>
-        </thead>>";
+        </thead>";
+
+        $rows = "";
+        for ($i=0; $i < count($array); $i++) {
+            $rows .= "<tr>
+                <td><img class='winkelwagen--img' src='" . $array[$i]["afbeelding"] . "'/> " . $array[$i]["naam"] . "</td>
+                <td>" . $array[$i]["prijs"] . "</td>
+                <td>"
+                    . $array[$i]["aantal"] ."
+                </td>
+                <td>
+                    <a class='winkelwagen--plusknop' href='index.php?view=winkelwagen&id=" . $array[$i]["id"] . "&op=addToCart'>+</a>
+                    <a class='winkelwagen--minknop' href='index.php?view=winkelwagen&id=" . $array[$i]["id"] . "&op=RemoveFromCart'>-</a>
+                </td>
+            </tr>";
+        }
+
+        $tableBody = "<tbody class='winkelwagen--tbody'>
+            $rows
+        </tbody>";
+
 
         $table = "<table>" . $tableHead . $tableBody . "</table>";
+
+        return $table;
     }
 }
