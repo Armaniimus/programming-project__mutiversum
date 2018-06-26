@@ -101,7 +101,12 @@ class ContentLogic {
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
-        return $this->FormatProducts($priceConvertedArray);
+        $home = "<h2>Home page</h2><br>
+        <p>Voor mooie Vr-brillen kun je het best hier zijn.
+        6 aanbiedingen speciaal voor u geselecteerd</p>";
+
+        $home .= $this->FormatProducts($priceConvertedArray);
+        return $home;
     }
 
     public function GetSearchData($option = null) {
