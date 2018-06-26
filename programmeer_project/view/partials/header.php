@@ -26,7 +26,7 @@
                 </li>
             </ul>
 
-            <a href="index.php?view=winkelwagen" class="btn btn-sm btn-outline-secondary mr-3">Winkelwagen</a>
+            <a href="index.php?view=winkelwagen" class="btn btn-sm btn-outline-secondary mr-3">Winkelwagen <i class="fas fa-shopping-cart"></i></a>
 
             <?php
                 if (!isset($previousSearch)) {
@@ -35,7 +35,7 @@
              ?>
             <form class="form-inline my-2 my-lg-0" action="index.php?view=search" method="post">
                   <input class="form-control mr-sm-2" name="search" placeholder="Zoeken" value="<?php echo $previousSearch ?>">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoek <i class="fas fa-search"></i></button>
             </form>
         </div>
     </nav>
