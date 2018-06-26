@@ -11,22 +11,7 @@
                     <p>
                         Multiversum is een VR-brillen winkel gevestigd in Nieuwegein, te Utrecht.<br> Wij bieden u VR-brillen met diverse resoluties en mogelijkheden.<br>
                     </p>
-                <div id="map" style="width:600px; height:400px;"></div>
-
-                <script>
-                    function myMap() {
-                    var mapOptions = {
-                        center: new google.maps.LatLng(52.045439, 5.092888),
-                        zoom: 10,
-                        mapTypeId: google.maps.MapTypeId.HYBRID
-                    }
-                    var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-                    }
-                </script>
-
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
-
-                    <h5>Retouren</h5>
+                      <h5>Retouren</h5>
                     <p>
                         Wilt u retourneren? Mail dan aub naar hanneke@multiversum.nl<br>
                     </p>
