@@ -24,7 +24,12 @@
                                 Vrijdag:  09:00-17:00<br>
                                 Zaterdag/Zondag: GESLOTEN.
                             </p></div>
-                        
+                        <h5>Adres</h5>
+                    <p>
+                        Harmonielaan 1
+                        3546UR Nieuwegein
+                        <br>
+                    </p>
                 </div>
                     
                       <h5>Retouren</h5>
