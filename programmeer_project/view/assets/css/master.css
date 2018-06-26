@@ -1,3 +1,8 @@
+.home-text {
+    display:block;
+    margin-bottom: -25px;
+}
+
 .updateform-input,
 .updateform-label,
 .createform-input,

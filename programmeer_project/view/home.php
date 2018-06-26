@@ -5,9 +5,7 @@
     <?php include "partials/header.php"; ?>
 	<main>
 		<div class="container">
-			<div class="row">
-				<?php echo $contentBoxes ?>
-			</div>
+			<?php echo $contentBoxes ?>
 		</div>
 	</main>
     <?php include "partials/footer.php"; ?>

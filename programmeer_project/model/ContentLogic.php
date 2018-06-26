@@ -92,7 +92,12 @@ class ContentLogic {
         if ($option == "admin") {
             return $this->FormatAdminProducts($priceConvertedArray);
         } else {
-            return $this->FormatProducts($priceConvertedArray);
+            $home = "<h2 style='display:block'>Products</h2>
+            <div class='row'>" .
+                $this->FormatProducts($priceConvertedArray) .
+            "</div>";
+
+            return $home;
         }
     }
 
@@ -101,11 +106,13 @@ class ContentLogic {
         $returnArray = $this->DataHandler->ReadData($sql);
         $priceConvertedArray = $this->PhpUtilities->Convert_NormalToEuro_2DArray($returnArray, 'prijs');
 
-        $home = "<h2>Home page</h2><br>
-        <p>Voor mooie Vr-brillen kun je het best hier zijn.
-        6 aanbiedingen speciaal voor u geselecteerd</p>";
+        $home = "<h2>Home page</h2>
+        <p class='home-text'>Voor mooie Vr-brillen kun je het best hier zijn.
+        6 aanbiedingen speciaal voor u geselecteerd</p>
+        <div class='row'>" .
+            $this->FormatProducts($priceConvertedArray) .
+        "</div>";
 
-        $home .= $this->FormatProducts($priceConvertedArray);
         return $home;
     }
 

@@ -191,7 +191,6 @@ class EntryController {
             $this->Controller_Home();
 
         } else {
-
             $form = '';
             if (isset($_POST["naam"]) && $_GET["op"] == 'create' ) {
                 $id = $this->EntryModel->CreateNewProduct();
@@ -238,7 +237,6 @@ class EntryController {
                 include "view/admin_panel.php";
             }
         }
-
     }
 
     /***
