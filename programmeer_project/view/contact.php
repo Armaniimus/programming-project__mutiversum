@@ -16,7 +16,7 @@
                 <script>
                     function myMap() {
                     var mapOptions = {
-                        center: new google.maps.LatLng(51.5, -0.12),
+                        center: new google.maps.LatLng(52.045439, 5.092888),
                         zoom: 10,
                         mapTypeId: google.maps.MapTypeId.HYBRID
                     }
