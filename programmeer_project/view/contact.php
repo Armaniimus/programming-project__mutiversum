@@ -8,6 +8,9 @@
             <div class="float-l col-xs-2"><br></div>
             <div class="float-l col-xs-8 login--center" style="float: right;">
                 <h3>Contact</h3>
+                    <p>
+                        Multiversum is een VR-brillen winkel gevestigd in Nieuwegein, te Utrecht.<br> Wij bieden u VR-brillen met diverse resoluties en mogelijkheden.<br>
+                    </p>
                 <div id="map" style="width:600px; height:400px;"></div>
 
                 <script>
