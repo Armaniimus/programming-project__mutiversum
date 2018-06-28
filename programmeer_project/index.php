@@ -1,4 +1,5 @@
 <?php
+include 'SecurityHeaders.php';
 
 // run normal program
 require_once "controller/EntryController.php";
