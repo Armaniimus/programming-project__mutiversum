@@ -51,7 +51,6 @@ class ContentLogic {
     public function CreateNewProduct() {
         $columns = ['naam', 'model', '3d_2d', 'resolutie', 'platform', 'merk', 'prijs', 'beschrijving'];
         $sql = $this->DataHandler->SetCreateQuery("vr_bril", $columns , $_POST);
-
         return $this->DataHandler->CreateData($sql);
     }
 
@@ -78,7 +77,6 @@ class ContentLogic {
 
             $returnArray["prijs"] = $this->PhpUtilities->Convert_NormalToEuro($returnArray["prijs"]);
             return $returnArray;
-
         } else {
             return [];
         }
@@ -96,7 +94,6 @@ class ContentLogic {
             <div class='row'>" .
                 $this->FormatProducts($priceConvertedArray) .
             "</div>";
-
             return $home;
         }
     }
@@ -112,7 +109,6 @@ class ContentLogic {
         <div class='row'>" .
             $this->FormatProducts($priceConvertedArray) .
         "</div>";
-
         return $home;
     }
 
@@ -158,7 +154,6 @@ class ContentLogic {
 
         $prijsTotaal = $this->PhpUtilities->toFixed($prijsTotaal, 2);
         $returnArray[0]["prijsTotaal"] = $this->PhpUtilities->Convert_NormalToEuro($prijsTotaal);
-
         return $returnArray;
     }
 
@@ -235,7 +230,6 @@ class ContentLogic {
                 </form>
             </div>
         </div>";
-
         return $this->FormatProducts($resultArray, $buttons);
     }
 }

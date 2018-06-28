@@ -126,10 +126,10 @@ class SessionLogic {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
 
-            if (isset($_SESSION['products'][$id])) {
-                $_SESSION['products']["$id"]++;
+            if (isset($_SESSION['cart'][$id])) {
+                $_SESSION['cart']["$id"]++;
             } else {
-                $_SESSION['products']["$id"] = 1;
+                $_SESSION['cart']["$id"] = 1;
             }
         }
     }
