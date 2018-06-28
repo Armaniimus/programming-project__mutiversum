@@ -4,6 +4,10 @@ class SessionLogic {
     public function __construct() {}
     public function __destruct() {}
 
+
+    /***
+    * @Description
+    * Controls login System (needs to be revisited)*/
     public function AdminLogin() {
         $AdminSesionName = "admin";
 
@@ -38,8 +42,8 @@ class SessionLogic {
                 if (isset($_POST['password'])) {
                     $password = $_POST['password'];
                     $PassTry = password_hash($password, 2);
+                }
             }
-        }
 
             // check for Username
             if ($username != NULL) {
@@ -71,6 +75,15 @@ class SessionLogic {
         return [$loggedIn, $admin_input ,$message];
     }
 
+
+    /***
+    * @Description
+    * Starts the session
+    * Sets the session max duration
+    * Sets the session timeout between Actions
+    * Sets the expireTime of the sessionCookie
+    * Sets the time before the garbae collection can collect the session
+    * logs user out if the time has expired*/
     public function SessionSupport() {
         // set session vars
         $expireTime = 1800; // 30m
@@ -96,16 +109,22 @@ class SessionLogic {
         }
     }
 
+
+    /***
+    * @Description
+    * Kills/destroys the session*/
     public function Logout() {
         session_unset();
         session_destroy();
         session_start();
     }
 
+    /***
+    * @Description
+    * Adds 1 from the product amount in the cart*/
     public function AddToCart() {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
-
 
             if (isset($_SESSION['products'][$id])) {
                 $_SESSION['products']["$id"]++;
@@ -115,27 +134,33 @@ class SessionLogic {
         }
     }
 
+    /***
+    * @Description
+    * Removes 1 from the product amount in the cart*/
     public function RemoveFromCart() {
         if (isset($_GET['id'])) {
             $id = $_GET['id'];
 
 
-            if (isset($_SESSION['products'][$id])) {
+            if (isset($_SESSION['cart'][$id])) {
 
-                if ($_SESSION['products'][$id] <= 1) {
-                    unset($_SESSION['products']["$id"]);
+                if ($_SESSION['cart'][$id] <= 1) {
+                    unset($_SESSION['cart']["$id"]);
                 } else {
-                    $_SESSION['products']["$id"]--;
+                    $_SESSION['cart']["$id"]--;
                 }
             }
         }
     }
 
+    /***
+    * @Description
+    * Generates a numberedArray From the SessionCart */
     public function WinkelwagenSession() {
         // if isset products
-        if (isset($_SESSION['products']) ) {
+        if (isset($_SESSION['cart']) ) {
             $array = [];
-            foreach($_SESSION['products'] as $ProductID => $Amount) {
+            foreach($_SESSION['cart'] as $ProductID => $Amount) {
                 array_push($array, ["id" => $ProductID, "aantal" => $Amount]);
             }
 
